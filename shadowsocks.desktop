@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Shadowsocks
+Exec=shadowsocks
+Icon=app/icon.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+X-Ubuntu-Splash-Color=#ffffff

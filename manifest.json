@@ -1,0 +1,17 @@
+{
+    "name": "shadowsocks.ubuntu-dawndiy",
+    "title": "Shadowsocks",
+    "description": "Shadowsocks client for Ubuntu Touch",
+    "icon": "icon.png",
+    "framework": "ubuntu-sdk-15.04.1",
+    "architecture": "armhf",
+    "maintainer": "DawnDIY <chenglu1990@gmail.com>",
+    "version": "0.0.1",
+    "hooks": {
+        "shadowsocks": {
+            "apparmor": "apparmor.json",
+            "desktop": "shadowsocks.desktop"
+        }
+    }
+}
+
