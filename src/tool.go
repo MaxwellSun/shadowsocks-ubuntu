@@ -64,13 +64,13 @@ func (t *Tool) RemoveRedsocksChain() {
 		return
 	}
 
-	// line = "iptables -t nat -D PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5354"
-	// _, e, err = t.sudo(line)
-	// if err != nil {
-	// 	logger.Println(line)
-	// 	logger.Println(string(e), err)
-	// 	return
-	// }
+	line = "iptables -t nat -D OUTPUT -m udp -p udp --dport 53 -d 127.0.1.1 -j REDIRECT --to-port 5354"
+	_, _, err = t.sudo(line)
+	if err != nil {
+		// logger.Println(line)
+		// logger.Println(string(e), err)
+		return
+	}
 }
 
 func (t *Tool) IgnoreLANs() {
@@ -124,7 +124,7 @@ func (t *Tool) RedirectToRedsocksChain() {
 }
 
 func (t *Tool) RedirectDNSToChinaDNS() {
-	line := "iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-port 5354"
+	line := "iptables -t nat -A OUTPUT -m udp -p udp --dport 53 -d 127.0.1.1 -j REDIRECT --to-port 5354"
 	// line := "iptables -t nat -A PREROUTING -p udp --dport 53 -j DNAT --to-destination 127.0.0.1:5354"
 	_, e, err := t.sudo(line)
 	if err != nil {
@@ -252,6 +252,7 @@ func (t *Tool) Run() bool {
 	t.IgnoreLANs()
 	t.IgnoreShadowsocksServer()
 	t.RedirectToRedsocksPort(12345)
+	t.RedirectDNSToChinaDNS()
 	t.RedirectToRedsocksChain()
 	t.SetLifecycleExemptAppids()
 	return true

@@ -26,6 +26,8 @@ func main() {
 
 	// Run redsocks proccess
 	go runRedSocks(false)
+	// Run chinadns proccess
+	go runChinaDNS(false)
 
 	err := qml.Run(run)
 	logger.Println(err)
@@ -56,6 +58,37 @@ func run() error {
 // Run redsocks proccess
 func runRedSocks(debug bool) {
 	cmd := exec.Command("./redsocks")
+
+	if debug {
+
+		stdout, _ := cmd.StdoutPipe()
+		stderr, _ := cmd.StderrPipe()
+
+		c := time.Tick(time.Second)
+		go func() {
+			for range c {
+				p := make([]byte, 1024)
+				stdout.Read(p)
+				fmt.Print(string(p))
+			}
+		}()
+
+		c1 := time.Tick(time.Second)
+		go func() {
+			for range c1 {
+				p := make([]byte, 1024)
+				stderr.Read(p)
+				fmt.Print(string(p))
+			}
+		}()
+	}
+
+	cmd.Run()
+}
+
+// Run chinaDNS proccess
+func runChinaDNS(debug bool) {
+	cmd := exec.Command("./chinadns", "-m", "-c", "chnroute.txt", "-p", "5354")
 
 	if debug {
 
