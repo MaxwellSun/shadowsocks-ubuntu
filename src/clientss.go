@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"net"
 	"net/http"
@@ -89,9 +88,9 @@ func (sc *ShadowsocksClient) emitSignal(signal, data string) {
 }
 
 func (sc *ShadowsocksClient) parseConfig() error {
-	if remote := net.ParseIP(fmt.Sprint(sc.Server)); remote == nil {
-		return errors.New(fmt.Sprintf("%v is not a valid ip address", sc.Server))
-	}
+	// if remote := net.ParseIP(fmt.Sprint(sc.Server)); remote == nil {
+	// 	return errors.New(fmt.Sprintf("%v is not a valid ip address", sc.Server))
+	// }
 	sc.Server = fmt.Sprintf("%v:%d", sc.Server, sc.ServerPort)
 	if cipher, err := ss.NewCipher(sc.Method, sc.Password); err != nil {
 		return err
