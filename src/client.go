@@ -128,6 +128,7 @@ func (s *Service) handleConnection(conn net.Conn) {
 	remote, err := ss.DialWithRawAddr(rawaddr, serverAddrPort, cipher.Copy())
 	if err != nil {
 		s.debug.Println(err)
+		return
 	}
 
 	s.waitGroup.Add(1)
