@@ -27,6 +27,5 @@ _testmain.go
 
 # ubuntu touch
 *.click
-redsocks
 shadowsocks
 build/
