@@ -9,7 +9,7 @@ import (
 	ss "github.com/shadowsocks/shadowsocks-go/shadowsocks"
 )
 
-// ShadowsocksClient
+// ShadowsocksClient is a client of shadowsocks
 type ShadowsocksClient struct {
 	ss.Config
 	Running      bool
@@ -94,20 +94,23 @@ func (sc *ShadowsocksClient) parseConfig() error {
 	sc.Server = fmt.Sprintf("%v:%d", sc.Server, sc.ServerPort)
 	if cipher, err := ss.NewCipher(sc.Method, sc.Password); err != nil {
 		return err
-	} else {
-		sc.serverCipher = &ServerCipher{fmt.Sprint(sc.Server), cipher}
 	}
+	sc.serverCipher = &ServerCipher{fmt.Sprint(sc.Server), cipher}
 
 	return nil
 }
 
+// Sent to emit sent signal to front end
 func (sc *ShadowsocksClient) Sent(n int) {
 	sc.emitSignal("sent", fmt.Sprint(n))
 }
+
+// Received to emit received signal to front end
 func (sc *ShadowsocksClient) Received(n int) {
 	sc.emitSignal("received", fmt.Sprint(n))
 }
 
+// CheckConnectivity to check connectivity with https://www.google.com/generate_204
 func (sc *ShadowsocksClient) CheckConnectivity() {
 
 	ch := make(chan string)
@@ -122,15 +125,12 @@ func (sc *ShadowsocksClient) CheckConnectivity() {
 		if err != nil {
 			ch <- "err," + err.Error()
 			return
-		} else {
-			if res.StatusCode == 204 || res.StatusCode == 200 && res.ContentLength == 0 {
-				ch <- fmt.Sprintf("%s,%d", "ok", elapsed)
-				return
-			} else {
-				ch <- fmt.Sprint("codeErr,")
-				return
-			}
 		}
+		if res.StatusCode == 204 || res.StatusCode == 200 && res.ContentLength == 0 {
+			ch <- fmt.Sprintf("%s,%d", "ok", elapsed)
+			return
+		}
+		ch <- fmt.Sprint("codeErr,")
 	}(ch)
 
 	go func(ch chan string) {

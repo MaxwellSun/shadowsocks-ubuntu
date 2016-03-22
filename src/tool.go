@@ -12,11 +12,13 @@ import (
 	"github.com/skip2/go-qrcode"
 )
 
+// Tool use for some command line operations
 type Tool struct {
 	Password          string
 	ShadowsocksServer string
 }
 
+// NewRedsocksChain to create a new chain in iptables with name REDSOCKS
 func (t *Tool) NewRedsocksChain() error {
 	cmdLine := "iptables -t nat -n -L REDSOCKS"
 	_, ebytes, err := t.sudo(cmdLine)
@@ -36,6 +38,7 @@ func (t *Tool) NewRedsocksChain() error {
 	return nil
 }
 
+// RemoveRedsocksChain to clear configs of iptables
 func (t *Tool) RemoveRedsocksChain() {
 	// remove rules in OUTPUT
 	line := "iptables -t nat -D OUTPUT -p tcp -j REDSOCKS"
@@ -73,6 +76,7 @@ func (t *Tool) RemoveRedsocksChain() {
 	}
 }
 
+// IgnoreLANs to ignore LANs in REDSOCKS
 func (t *Tool) IgnoreLANs() {
 
 	LANs := []string{
@@ -96,6 +100,7 @@ func (t *Tool) IgnoreLANs() {
 	}
 }
 
+// IgnoreShadowsocksServer to ignore ss-server in REDSOCKS
 func (t *Tool) IgnoreShadowsocksServer() {
 	line := fmt.Sprintf("iptables -t nat -A REDSOCKS -d %s -j RETURN", t.ShadowsocksServer)
 	_, e, err := t.sudo(line)
@@ -105,6 +110,7 @@ func (t *Tool) IgnoreShadowsocksServer() {
 	}
 }
 
+// RedirectToRedsocksPort redirect tcp connections to Redsocks' port
 func (t *Tool) RedirectToRedsocksPort(port int) {
 	line := fmt.Sprintf("iptables -t nat -A REDSOCKS -p tcp -j REDIRECT --to-ports %d", port)
 	_, e, err := t.sudo(line)
@@ -114,6 +120,7 @@ func (t *Tool) RedirectToRedsocksPort(port int) {
 	}
 }
 
+// RedirectToRedsocksChain redirect OUTPUT to REDSOCKS
 func (t *Tool) RedirectToRedsocksChain() {
 	line := "iptables -t nat -A OUTPUT -p tcp -j REDSOCKS"
 	_, e, err := t.sudo(line)
@@ -123,6 +130,7 @@ func (t *Tool) RedirectToRedsocksChain() {
 	}
 }
 
+// RedirectDNSToChinaDNS redirect udp package to port 5354
 func (t *Tool) RedirectDNSToChinaDNS() {
 	line := "iptables -t nat -A OUTPUT -m udp -p udp --dport 53 -d 127.0.1.1 -j REDIRECT --to-port 5354"
 	// line := "iptables -t nat -A PREROUTING -p udp --dport 53 -j DNAT --to-destination 127.0.0.1:5354"
@@ -134,7 +142,7 @@ func (t *Tool) RedirectDNSToChinaDNS() {
 }
 
 func (t *Tool) sudo(cmdLine string) ([]byte, []byte, error) {
-	var err error = nil
+	var err error
 
 	err = t.sudoValidate(t.Password)
 	if err != nil {
@@ -174,6 +182,7 @@ func (t *Tool) sudoValidate(password string) error {
 	return nil
 }
 
+// CheckPassword check sudo password
 func (t *Tool) CheckPassword(password string) bool {
 	// t.Password = password
 
@@ -185,6 +194,7 @@ func (t *Tool) CheckPassword(password string) bool {
 	return true
 }
 
+// SsQRCode generate a QRCode for ss-url
 func (t *Tool) SsQRCode(method, password, server string, port int) string {
 	plain := fmt.Sprintf("%s:%s@%s:%d", method, password, server, port)
 	encoded := base64.StdEncoding.EncodeToString([]byte(plain))
@@ -193,6 +203,7 @@ func (t *Tool) SsQRCode(method, password, server string, port int) string {
 	return qrBase64
 }
 
+// SetLifecycleExemptAppids to ensure App can running in the background
 func (t *Tool) SetLifecycleExemptAppids() {
 	outBuf := &bytes.Buffer{}
 	errBuf := &bytes.Buffer{}
@@ -243,6 +254,7 @@ func (t *Tool) SetLifecycleExemptAppids() {
 
 }
 
+// Run to run a series of commands
 func (t *Tool) Run() bool {
 	t.RemoveRedsocksChain()
 	err := t.NewRedsocksChain()

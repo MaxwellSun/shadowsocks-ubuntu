@@ -1,5 +1,6 @@
 package main
 
+// LeakyBuf is a leaky buffer struct
 type LeakyBuf struct {
 	bufSize  int // size of each buffer
 	freeList chan []byte

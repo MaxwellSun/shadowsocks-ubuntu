@@ -37,11 +37,13 @@ type Service struct {
 	trafficListener TrafficListener
 }
 
+// ServerCipher shadowsock servier chipher
 type ServerCipher struct {
 	server string
 	cipher *ss.Cipher
 }
 
+// TrafficListener listen sent/received traffic
 type TrafficListener interface {
 	Sent(int)
 	Received(int)
@@ -60,6 +62,7 @@ func NewService(serverCipher *ServerCipher) *Service {
 	return s
 }
 
+// SetTrafficListener set listener in service
 func (s *Service) SetTrafficListener(listener TrafficListener) {
 	s.trafficListener = listener
 }

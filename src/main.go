@@ -11,9 +11,9 @@ import (
 )
 
 var (
-	logger *log.Logger = log.New(os.Stdout, "", log.LstdFlags|log.Lshortfile)
+	logger = log.New(os.Stdout, "", log.LstdFlags|log.Lshortfile)
 	root   qml.Object
-	tool   *Tool = &Tool{}
+	tool   = &Tool{}
 )
 
 func main() {
