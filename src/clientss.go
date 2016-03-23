@@ -92,7 +92,8 @@ func (sc *ShadowsocksClient) parseConfig() error {
 	// 	return errors.New(fmt.Sprintf("%v is not a valid ip address", sc.Server))
 	// }
 	sc.Server = fmt.Sprintf("%v:%d", sc.Server, sc.ServerPort)
-	if cipher, err := ss.NewCipher(sc.Method, sc.Password); err != nil {
+	cipher, err := ss.NewCipher(sc.Method, sc.Password)
+	if err != nil {
 		return err
 	}
 	sc.serverCipher = &ServerCipher{fmt.Sprint(sc.Server), cipher}
