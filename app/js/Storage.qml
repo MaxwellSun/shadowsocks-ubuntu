@@ -14,7 +14,7 @@ Item {
         console.debug("[DATABASE]:", db.version)
 
         if (db.version === "") {
-            db.changeVersion("", "0.1", function(tx) {
+            db.changeVersion("", "1.0.0", function(tx) {
                 tx.executeSql("create table if not exists profile(id integer primary key autoincrement, name text, server text, remote_port integer, local_port integer, password text, method text)");
 
                 tx.executeSql("create table if not exists config(key text, value text)");
