@@ -45,8 +45,9 @@ APP_NAME=$1
 CHROOT=$2
 SERIES=$3
 
-#CURRENT_DIR=`pwd`
+# change this to your GOPATH
 CURRENT_DIR="/home/dawndiy/workspace/golang"
+# change this to your GOROOT
 GOROOT="/usr/local/lib/go"
 
 
