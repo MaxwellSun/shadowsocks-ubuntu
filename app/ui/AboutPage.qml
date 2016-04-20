@@ -31,7 +31,7 @@ Page {
                 anchors.top: image.bottom
                 anchors.topMargin: units.gu(2)
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: i18n.tr("<b>Shadowsocks 1.0.0</b>")
+                text: i18n.tr("<b>Shadowsocks 1.0.1</b>")
                 fontSize: "large"
             }
 
