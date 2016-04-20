@@ -11,6 +11,8 @@ libevent-2.0.x is required. So let's build libevent first.
 - `./configure --host=arm-linux-gnueabi`
 - `make`
 
+build redsocks  
+
 - `git clone git@github.com:darkk/redsocks.git <YOUR_REDSOCKS_PATH>`
 - `sudo click chroot -a armhf -f ubuntu-sdk-15.04 -s vivid maint`
 - `cd <YOUR_REDSOCKS_PATH>`
@@ -32,3 +34,6 @@ The project repository is [here](https://github.com/shadowsocks/ChinaDNS)
 - `./configure --host=arm-linux-gnueabi && make`
 
 Then you will get the **chinadns** binary in `<YOUR_CHINADNS_PATH>/src/`.
+
+
+Finally, copy this two files into armh folder for build the click package.
