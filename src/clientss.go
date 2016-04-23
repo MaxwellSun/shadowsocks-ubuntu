@@ -31,7 +31,7 @@ func (sc *ShadowsocksClient) Run() {
 			return
 		}
 
-		listenAddr := "0.0.0.0:1080"
+		listenAddr := "127.0.0.1:1080"
 		addr, _ := net.ResolveTCPAddr("tcp", listenAddr)
 
 		listener, err := net.ListenTCP("tcp", addr)
