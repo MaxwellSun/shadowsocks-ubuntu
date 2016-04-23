@@ -18,9 +18,27 @@ Shadowsocks-ubuntu is written in Golang. You must has golang installed before bu
 How to install golang: https://golang.org/doc/install  
 NOTE: use go1.5 for build, not use go1.6 now.
 
-And this project depends on [go-qml](https://github.com/go-qml/qml) project.
+Shadowsocks-ubuntu is build on these projects, and thanks for these projects:
+
+- [go-qml](https://github.com/go-qml/qml)
+- [shadowsocks-go](https://github.com/shadowsocks/shadowsocks-go)
+- [ChinaDNS](https://github.com/shadowsocks/ChinaDNS)
+- [redsocks](https://github.com/darkk/redsocks)
+- [go-qrcode](https://github.com/skip2/go-qrcode)
+
+Install necessary libraries: 
+
+```
+go get go-qml/qml
+go get shadowsocks/shadowsocks-go
+go get skip2/go-qrcode
+```
+
+Build redsocsk & chinadns: 
+
+[HERE](BUILD.md) is about how to build the binary files of **redsocks** & **chinadns**.
+
 Before build, change `CURRENT_DIR` with your **GOPATH** and `GOROOT` with your **GOROOT** in build-click-package.sh .  
 Run this command to build the click package for Ubuntu Touch.  
 `./build-click-package.sh shadowsocks ubuntu-sdk-15.04 vivid`
 
-[HERE](BUILD.md) is about how to build the binary files of **redsocks** & **chinadns**.
