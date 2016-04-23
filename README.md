@@ -38,7 +38,7 @@ Build redsocsk & chinadns:
 
 [HERE](BUILD.md) is about how to build the binary files of **redsocks** & **chinadns**.
 
-Before build, change `CURRENT_DIR` with your **GOPATH** and `GOROOT` with your **GOROOT** in build-click-package.sh .  
+Before build, change `CURRENT_DIR` with your **GOPATH** and `GOROOT` with your **GOROOT** in *build-click-package.sh* .  
 Run this command to build the click package for Ubuntu Touch.  
 `./build-click-package.sh shadowsocks ubuntu-sdk-15.04 vivid`
 
