@@ -7,29 +7,32 @@ Page {
 
     property var ssProfile
 
-    title: i18n.tr("Profile")
+    header: PageHeader {
+        title: i18n.tr("Profile")
 
-    head.actions: [
-        Action {
-            id: actionOk
-            text: i18n.tr('OK')
-            iconName: 'ok'
-            enabled: false
-            onTriggered: {
-                console.log("Save profile")
-                saveProfile()
-                mainPageStack.pop()
+        flickable: flickable
+        trailingActionBar.actions: [
+            Action {
+                id: actionOk
+                text: i18n.tr('OK')
+                iconName: 'ok'
+                enabled: false
+                onTriggered: {
+                    console.log("Save profile")
+                    saveProfile()
+                    mainPageStack.pop()
+                }
+            },
+            Action {
+                id: actionClose
+                text: i18n.tr("Close")
+                iconName: 'close'
+                onTriggered: {
+                    mainPageStack.pop()
+                }
             }
-        },
-        Action {
-            id: actionClose
-            text: i18n.tr("Close")
-            iconName: 'close'
-            onTriggered: {
-                mainPageStack.pop()
-            }
-        }
-    ]
+        ]
+    }
 
     function saveProfile() {
         var profileName = profileNameText.text

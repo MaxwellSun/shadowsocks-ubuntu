@@ -8,17 +8,42 @@ Page {
 
     property var profileList: []
 
-    title: i18n.tr("Profiles")
+    header: PageHeader {
+        title: i18n.tr("Profiles")
 
-    head.actions: [
-        Action {
-            text: i18n.tr('Add')
-            iconName: 'add'
-            onTriggered: {
-                mainPageStack.push(Qt.resolvedUrl("ProfilePage.qml"))
-            }
+        flickable: flickable
+
+        leadingActionBar {
+            actions: [
+                Action {
+                    text: i18n.tr("Home")
+                    iconName: "send"
+                    onTriggered: {
+                        tabs.selectedTabIndex = 0
+                    }
+                },
+                Action {
+                    text: i18n.tr("Profiles")
+                    iconName: "view-list-symbolic"
+                    onTriggered: {
+                        tabs.selectedTabIndex = 1
+                    }
+                }
+            ]
         }
-    ]
+
+        trailingActionBar {
+            actions: [
+                Action {
+                    text: i18n.tr('Add')
+                    iconName: 'add'
+                    onTriggered: {
+                        mainPageStack.push(Qt.resolvedUrl("ProfilePage.qml"))
+                    }
+                }
+            ]
+        }
+    }
 
     onVisibleChanged: {
         if (visible) {
@@ -92,9 +117,14 @@ Page {
                     }
 
                     onClicked: {
-                        root.profile = profileList[index]
-                        storage.configSet("profile_id", root.profile.id)
-                        mainPageStack.pop()
+                        if (!ssClient.running) {
+                            root.profile = profileList[index]
+                            storage.configSet("profile_id", root.profile.id)
+                            // mainPageStack.pop()
+                            tabs.selectedTabIndex = 0
+                        } else {
+                            notification(i18n.tr("Can't switch profile when service is running!"))
+                        }
                     }
                 }
             }

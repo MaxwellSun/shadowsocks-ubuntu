@@ -1,6 +1,6 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
-import Ubuntu.Components.Popups 1.0
+import Ubuntu.Components.Popups 1.3
 import "ui"
 import "js"
 
@@ -37,6 +37,11 @@ MainView {
         id: storage
     }
 
+    FontLoader {
+        id: icelandFont
+        source: Qt.resolvedUrl("font/Iceland.ttf")
+    }
+
     PageStack {
         id: mainPageStack
 
@@ -46,7 +51,7 @@ MainView {
 
             Tab {
                 id: homeTab
-                title: i18n.tr("Home")
+                title: i18n.tr("Shadowsocks")
                 page: Loader {
                     parent: homeTab
                     anchors.top: parent.top
@@ -58,17 +63,30 @@ MainView {
             }
 
             Tab {
-                id: aboutTab
-                title: i18n.tr("About")
+                id: profilesTab
+                title: i18n.tr("Profiles")
                 page: Loader {
-                    parent: aboutTab
+                    parent: profilesTab
                     anchors.top: parent.top
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.bottom: parent.bottom
-                    source: (tabs.selectedTab === aboutTab) ? Qt.resolvedUrl("ui/AboutPage.qml") : ""
+                    source: (tabs.selectedTab === profilesTab) ? Qt.resolvedUrl("ui/ProfilesPage.qml") : ""
                 }
             }
+
+            // Tab {
+            //     id: aboutTab
+            //     title: i18n.tr("About")
+            //     page: Loader {
+            //         parent: aboutTab
+            //         anchors.top: parent.top
+            //         anchors.left: parent.left
+            //         anchors.right: parent.right
+            //         anchors.bottom: parent.bottom
+            //         source: (tabs.selectedTab === aboutTab) ? Qt.resolvedUrl("ui/AboutPage.qml") : ""
+            //     }
+            // }
         }
     }
 

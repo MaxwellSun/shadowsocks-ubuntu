@@ -1,6 +1,6 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
-import Ubuntu.Components.Popups 1.0
+import Ubuntu.Components.Popups 1.3
 import Ubuntu.Components.ListItems 1.3 as ListItems
 import "../component"
 
@@ -36,19 +36,53 @@ Page {
         ssClient.stop()
     }
 
-    title: i18n.tr("Shadowsocks")
+    header: PageHeader {
 
-    // head.actions: [
-    //     Action {
-    //         id: startAction
-    //         text: i18n.tr('About')
-    //         iconName: "info"
-    //         onTriggered: {
-    //             mainPageStack.push(Qt.resolvedUrl("AboutPage.qml"))
-    //         }
-    //     }
+        title: i18n.tr("Shadowsocks")
+        contents: Rectangle {
+            anchors.fill: parent
+            Label {
+                anchors.verticalCenter: parent.verticalCenter;
+                text: header.title
+                fontSize: "x-large"
+                font.family: icelandFont.name
+                font.weight: Font.DemiBold
+            }
+        }
 
-    // ]
+        leadingActionBar {
+            actions: [
+                Action {
+                    text: i18n.tr("Home")
+                    iconName: "send"
+                    onTriggered: {
+                        tabs.selectedTabIndex = 0
+                    }
+                },
+                Action {
+                    text: i18n.tr("Profiles")
+                    iconName: "view-list-symbolic"
+                    onTriggered: {
+                        tabs.selectedTabIndex = 1
+                    }
+                }
+            ]
+        }
+
+        trailingActionBar {
+            actions: [
+                Action {
+                    id: startAction
+                    text: i18n.tr('About')
+                    iconName: "info"
+                    onTriggered: {
+                        mainPageStack.push(Qt.resolvedUrl("AboutPage.qml"))
+                    }
+                }
+            ]
+        }
+
+    }
 
     Component.onCompleted: {
         storage.configGet("profile_id", function(profile_id) {
@@ -63,7 +97,13 @@ Page {
 
     Flickable {
         id: flickable
-        anchors.fill: parent
+        // anchors.fill: parent
+        anchors {
+            top: homePage.header.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
         // anchors.topMargin: units.gu(2)
         // anchors.bottomMargin: units.gu(2)
         contentHeight: layout.height
@@ -203,35 +243,35 @@ Page {
 
             }
 
-            ListItems.Header {
-                text: i18n.tr("<b>General Settings</b>")
-            }
+            // ListItems.Header {
+            //     text: i18n.tr("<b>General Settings</b>")
+            // }
 
-            ListItem {
-                Label {
-                    anchors.top: parent.top
-                    anchors.topMargin: units.gu(1)
-                    anchors.left: parent.left
-                    anchors.leftMargin: units.gu(2)
-                    text: i18n.tr("Profiles")
-                }
-                Label {
-                    anchors.bottom: parent.bottom
-                    anchors.bottomMargin: units.gu(1)
-                    anchors.left: parent.left
-                    anchors.leftMargin: units.gu(2)
-                    text: i18n.tr("Switch to another profile or add new profiles")
-                    fontSize: "small"
-                }
-                onClicked: {
-                    Haptics.play()
-                    if (!ssClient.running) {
-                        mainPageStack.push(Qt.resolvedUrl("ProfilesPage.qml"))
-                    } else {
-                        notification(i18n.tr("Can't switch profile when service is running!"))
-                    }
-                }
-            }
+            // ListItem {
+            //     Label {
+            //         anchors.top: parent.top
+            //         anchors.topMargin: units.gu(1)
+            //         anchors.left: parent.left
+            //         anchors.leftMargin: units.gu(2)
+            //         text: i18n.tr("Profiles")
+            //     }
+            //     Label {
+            //         anchors.bottom: parent.bottom
+            //         anchors.bottomMargin: units.gu(1)
+            //         anchors.left: parent.left
+            //         anchors.leftMargin: units.gu(2)
+            //         text: i18n.tr("Switch to another profile or add new profiles")
+            //         fontSize: "small"
+            //     }
+            //     onClicked: {
+            //         Haptics.play()
+            //         if (!ssClient.running) {
+            //             mainPageStack.push(Qt.resolvedUrl("ProfilesPage.qml"))
+            //         } else {
+            //             notification(i18n.tr("Can't switch profile when service is running!"))
+            //         }
+            //     }
+            // }
 
             NetworkTraffic {
                 id: networkTraffic
