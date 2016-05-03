@@ -98,7 +98,7 @@ Page {
                             width: parent.width
                             horizontalAlignment: Text.AlignHCenter
                             // TRANSLATORS: Shadowsocks version number e.g Version 1.0.0
-                            text: i18n.tr("Version %1").arg("1.1.0")
+                            text: i18n.tr("Version %1").arg("1.0.2")
                         }
                     }
 
