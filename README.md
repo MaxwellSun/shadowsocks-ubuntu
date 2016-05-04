@@ -29,9 +29,15 @@ Shadowsocks-ubuntu is build on these projects, and thanks for these projects:
 Install necessary libraries: 
 
 ```
-go get go-qml/qml
-go get shadowsocks/shadowsocks-go
-go get skip2/go-qrcode
+$ go get gopkg.in/qml.v1
+$ sudo add-apt-repository ppa:ubuntu-sdk-team/ppa
+$ sudo apt-get update
+$ sudo apt-get install qtdeclarative5-dev qtbase5-private-dev qtdeclarative5-private-dev libqt5opengl5-dev qtdeclarative5-qtquick2-plugin
+```
+
+```
+go get github.com/shadowsocks/shadowsocks-go
+go get github.com/skip2/go-qrcode
 ```
 
 Build redsocsk & chinadns: 
