@@ -57,7 +57,7 @@ func run() error {
 
 // Run redsocks proccess
 func runRedSocks(debug bool) {
-	cmd := exec.Command("./redsocks")
+	cmd := exec.Command("redsocks", "-c", "redsocks.conf")
 
 	if debug {
 
@@ -88,7 +88,7 @@ func runRedSocks(debug bool) {
 
 // Run chinaDNS proccess
 func runChinaDNS(debug bool) {
-	cmd := exec.Command("./chinadns", "-m", "-c", "chnroute.txt", "-p", "5354")
+	cmd := exec.Command("chinadns", "-m", "-c", "chnroute.txt", "-p", "5354")
 
 	if debug {
 

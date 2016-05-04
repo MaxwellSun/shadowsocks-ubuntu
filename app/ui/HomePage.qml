@@ -14,7 +14,7 @@ Page {
         console.log("Server:", profile.server)
         console.log("Remote Port:", profile.remote_port)
         console.log("Local Port:", profile.local_port)
-        console.log("Password:", profile.password)
+        // console.log("Password:", profile.password)
         console.log("Method:", profile.method)
         console.log("-----------------------------")
 
