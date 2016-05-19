@@ -83,6 +83,15 @@ func (sc *ShadowsocksClient) Stop() {
 }
 
 func (sc *ShadowsocksClient) emitSignal(signal, data string) {
+
+	defer func() {
+		// try to recover panic from go-qml
+		if r := recover(); r != nil {
+			logger.Println("!!PANIC!!", r)
+			tool.RemoveRedsocksChain()
+		}
+	}()
+
 	handler := root.ObjectByName("ssClient")
 	handler.Call("emitSignal", signal, data)
 }

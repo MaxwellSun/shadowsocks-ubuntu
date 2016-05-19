@@ -21,6 +21,9 @@ func main() {
 
 	// try to recovery system status
 	defer func() {
+		if r := recover(); r != nil {
+			logger.Println("!!PANIC!!", r)
+		}
 		tool.RemoveRedsocksChain()
 	}()
 
