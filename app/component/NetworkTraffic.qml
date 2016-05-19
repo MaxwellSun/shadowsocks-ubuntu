@@ -3,10 +3,10 @@ import Ubuntu.Components 1.3
 
 ListItem {
 
-    property int sentTotal: 0
-    property int receivedTotal: 0
-    property int sentRecord: 0
-    property int receivedRecord: 0
+    property double sentTotal: 0
+    property double receivedTotal: 0
+    property double sentRecord: 0
+    property double receivedRecord: 0
 
     function formatTraffic(bytes) {
         var num = 0, unit = "Bytes";
