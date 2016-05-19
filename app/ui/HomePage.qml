@@ -36,21 +36,23 @@ Page {
         ssClient.stop()
     }
 
-    header: PageHeader {
+    header: SSHeader {
 
         title: i18n.tr("Shadowsocks")
-        contents: Rectangle {
-            anchors.fill: parent
-            Label {
-                anchors.verticalCenter: parent.verticalCenter;
-                text: header.title
-                fontSize: "x-large"
-                font.family: icelandFont.name
-                font.weight: Font.DemiBold
-            }
+
+        // opacity: 0.8
+
+        contents: Label {
+            anchors.verticalCenter: parent.verticalCenter;
+            text: header.title
+            fontSize: "x-large"
+            font.family: icelandFont.name
+            font.weight: Font.DemiBold
+            color: "white"
         }
 
         leadingActionBar {
+
             actions: [
                 Action {
                     text: i18n.tr("Home")

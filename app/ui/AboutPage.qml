@@ -5,10 +5,10 @@ import "../component"
 Page {
     id: aboutPage
 
-    header: PageHeader {
+    header: SSHeader {
         title: i18n.tr("About")
 
-        extension: Sections {
+        extension: SSPageSection {
             id: sections
             anchors {
                 horizontalCenter: parent.horizontalCenter
