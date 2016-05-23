@@ -38,7 +38,7 @@ Page {
 
     header: SSHeader {
 
-        title: i18n.tr("Shadowsocks")
+        title: "Shadowsocks"
 
         // opacity: 0.8
 

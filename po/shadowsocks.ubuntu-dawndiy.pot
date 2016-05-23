@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the shadowsocks.ubuntu-dawndiy package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: shadowsocks.ubuntu-dawndiy\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-24 01:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: app/main.qml:54 app/ui/AboutPage.qml:95
+msgid "Shadowsocks"
+msgstr ""
+
+#: app/main.qml:67 app/ui/HomePage.qml:65 app/ui/ProfilesPage.qml:13
+#: app/ui/ProfilesPage.qml:27
+msgid "Profiles"
+msgstr ""
+
+#: app/main.qml:97
+msgid "Enter password"
+msgstr ""
+
+#: app/main.qml:98
+msgid "Your password is required for this action"
+msgstr ""
+
+#: app/ui/AboutPage.qml:9 app/ui/AboutPage.qml:19
+msgid "About"
+msgstr ""
+
+#: app/ui/AboutPage.qml:22
+msgid "Credits"
+msgstr ""
+
+#: app/ui/AboutPage.qml:40 app/ui/AboutPage.qml:41
+msgid "Resources"
+msgstr ""
+
+#: app/ui/AboutPage.qml:40
+msgid "Bugs"
+msgstr ""
+
+#: app/ui/AboutPage.qml:41
+msgid "Contact"
+msgstr ""
+
+#: app/ui/AboutPage.qml:44
+msgid "Developers"
+msgstr ""
+
+#: app/ui/AboutPage.qml:44
+msgid "Founder"
+msgstr ""
+
+#: app/ui/AboutPage.qml:47 app/ui/AboutPage.qml:48 app/ui/AboutPage.qml:49
+#: app/ui/AboutPage.qml:50
+msgid "Powered by"
+msgstr ""
+
+#. TRANSLATORS: Shadowsocks version number e.g Version 1.0.0
+#: app/ui/AboutPage.qml:101
+#, qt-format
+msgid "Version %1"
+msgstr ""
+
+#: app/ui/AboutPage.qml:109
+msgid "A Shadowsocks client for Ubuntu, written in Golang."
+msgstr ""
+
+#: app/ui/AboutPage.qml:129
+msgid "Released under the terms of the GNU GPL v3"
+msgstr ""
+
+#: app/ui/AboutPage.qml:139
+#, qt-format
+msgid "Source code available on %1"
+msgstr ""
+
+#: app/ui/HomePage.qml:58 app/ui/ProfilesPage.qml:20
+msgid "Home"
+msgstr ""
+
+#: app/ui/HomePage.qml:126
+msgid "<b>Profile</b>:"
+msgstr ""
+
+#: app/ui/HomePage.qml:136
+msgid "<b>Status</b>:"
+msgstr ""
+
+#: app/ui/HomePage.qml:155 app/ui/HomePage.qml:170
+msgid "Started"
+msgstr ""
+
+#: app/ui/HomePage.qml:155 app/ui/HomePage.qml:176 app/ui/HomePage.qml:200
+#: app/ui/HomePage.qml:223 app/ui/HomePage.qml:231
+msgid "Stopped"
+msgstr ""
+
+#: app/ui/HomePage.qml:163
+msgid "Start Failed"
+msgstr ""
+
+#: app/ui/HomePage.qml:196
+msgid "Starting..."
+msgstr ""
+
+#: app/ui/HomePage.qml:199
+msgid "Please select a profile first!"
+msgstr ""
+
+#: app/ui/HomePage.qml:239
+msgid "Stopping..."
+msgstr ""
+
+#: app/ui/HomePage.qml:283
+msgid "<b>Server Settings</b>"
+msgstr ""
+
+#: app/ui/HomePage.qml:291 app/ui/ProfilePage.qml:93
+msgid "Profile Name"
+msgstr ""
+
+#: app/ui/HomePage.qml:309 app/ui/ProfilePage.qml:116
+msgid "Server"
+msgstr ""
+
+#: app/ui/HomePage.qml:326 app/ui/ProfilePage.qml:135
+msgid "Remote Port"
+msgstr ""
+
+#: app/ui/HomePage.qml:360 app/ui/ProfilePage.qml:179
+msgid "Password"
+msgstr ""
+
+#: app/ui/HomePage.qml:398 app/ui/ProfilePage.qml:197
+msgid "Encrypt Method"
+msgstr ""
+
+#: app/ui/ProfilesPage.qml:127
+msgid "Can't switch profile when service is running!"
+msgstr ""
+
+#: app/ui/ProfilesPage.qml:150
+msgid "Please add new profiles"
+msgstr ""
+
+#: app/ui/ProfilePage.qml:12
+msgid "Profile"
+msgstr ""
+
+#: app/ui/ProfilePage.qml:29
+msgid "Close"
+msgstr ""
+
+#: app/ui/ProfilePage.qml:85
+msgid "General Settings"
+msgstr ""
+
+#: app/ui/ProfilePage.qml:108
+msgid "Server Settings"
+msgstr ""
+
+#: app/ui/ProfilePage.qml:156
+msgid "Local Port"
+msgstr ""
+
+#: app/component/NetworkTraffic.qml:37
+msgid "Testing..."
+msgstr ""
+
+#: app/component/NetworkTraffic.qml:63
+msgid "Success: "
+msgstr ""
+
+#: app/component/NetworkTraffic.qml:63
+msgid "ms latency"
+msgstr ""
+
+#: app/component/NetworkTraffic.qml:66
+msgid "Failed: time out"
+msgstr ""
+
+#: app/component/NetworkTraffic.qml:69
+msgid "Failed: status code error"
+msgstr ""
+
+#: app/component/NetworkTraffic.qml:97
+msgid "Network Traffic"
+msgstr ""
+
+#: app/component/NetworkTraffic.qml:105
+msgid "Check Connectivity"
+msgstr ""
+
+#: app/component/NetworkTraffic.qml:116
+msgid "Received:"
+msgstr ""
+
+#: app/component/NetworkTraffic.qml:128
+msgid "Sent:"
+msgstr ""

@@ -1,0 +1,213 @@
+# Chinese translations for shadowsocks.ubuntu-dawndiy package
+# shadowsocks.ubuntu-dawndiy 软件包的简体中文翻译.
+# Copyright (C) 2016 THE shadowsocks.ubuntu-dawndiy'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the shadowsocks.ubuntu-dawndiy package.
+# DawnDIY <chenglu1990@gmail.com>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: shadowsocks.ubuntu-dawndiy\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-24 01:59+0800\n"
+"PO-Revision-Date: 2016-05-24 02:08+0800\n"
+"Last-Translator: DawnDIY <chenglu1990@gmail.com>\n"
+"Language-Team: Chinese (simplified)\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: app/main.qml:54 app/ui/AboutPage.qml:95
+msgid "Shadowsocks"
+msgstr "影梭"
+
+#: app/main.qml:67 app/ui/HomePage.qml:65 app/ui/ProfilesPage.qml:13
+#: app/ui/ProfilesPage.qml:27
+msgid "Profiles"
+msgstr "配置"
+
+#: app/main.qml:97
+msgid "Enter password"
+msgstr "输入密码"
+
+#: app/main.qml:98
+msgid "Your password is required for this action"
+msgstr "该操作需要你的密码"
+
+#: app/ui/AboutPage.qml:9 app/ui/AboutPage.qml:19
+msgid "About"
+msgstr "关于"
+
+#: app/ui/AboutPage.qml:22
+msgid "Credits"
+msgstr "鸣谢"
+
+#: app/ui/AboutPage.qml:40 app/ui/AboutPage.qml:41
+msgid "Resources"
+msgstr "资源"
+
+#: app/ui/AboutPage.qml:40
+msgid "Bugs"
+msgstr "Bugs"
+
+#: app/ui/AboutPage.qml:41
+msgid "Contact"
+msgstr "联系"
+
+#: app/ui/AboutPage.qml:44
+msgid "Developers"
+msgstr "开发者"
+
+#: app/ui/AboutPage.qml:44
+msgid "Founder"
+msgstr "创建者"
+
+#: app/ui/AboutPage.qml:47 app/ui/AboutPage.qml:48 app/ui/AboutPage.qml:49
+#: app/ui/AboutPage.qml:50
+msgid "Powered by"
+msgstr "基于"
+
+#. TRANSLATORS: Shadowsocks version number e.g Version 1.0.0
+#: app/ui/AboutPage.qml:101
+#, qt-format
+msgid "Version %1"
+msgstr "版本 %1"
+
+#: app/ui/AboutPage.qml:109
+msgid "A Shadowsocks client for Ubuntu, written in Golang."
+msgstr "Golang 编写的 Ubuntu 版 Shadowsocks 客户端。"
+
+#: app/ui/AboutPage.qml:129
+msgid "Released under the terms of the GNU GPL v3"
+msgstr "以 GNU GPL v3 条款发布"
+
+#: app/ui/AboutPage.qml:139
+#, qt-format
+msgid "Source code available on %1"
+msgstr "在 %1 上提供源代码"
+
+#: app/ui/HomePage.qml:58 app/ui/ProfilesPage.qml:20
+msgid "Home"
+msgstr "首页"
+
+#: app/ui/HomePage.qml:126
+msgid "<b>Profile</b>:"
+msgstr "<b>配置</b>"
+
+#: app/ui/HomePage.qml:136
+msgid "<b>Status</b>:"
+msgstr "<b>状态</b>"
+
+#: app/ui/HomePage.qml:155 app/ui/HomePage.qml:170
+msgid "Started"
+msgstr "已启动"
+
+#: app/ui/HomePage.qml:155 app/ui/HomePage.qml:176 app/ui/HomePage.qml:200
+#: app/ui/HomePage.qml:223 app/ui/HomePage.qml:231
+msgid "Stopped"
+msgstr "已停止"
+
+#: app/ui/HomePage.qml:163
+msgid "Start Failed"
+msgstr "启动失败"
+
+#: app/ui/HomePage.qml:196
+msgid "Starting..."
+msgstr "启动中..."
+
+#: app/ui/HomePage.qml:199
+msgid "Please select a profile first!"
+msgstr "请先选择一个配置！"
+
+#: app/ui/HomePage.qml:239
+msgid "Stopping..."
+msgstr "停止中..."
+
+#: app/ui/HomePage.qml:283
+msgid "<b>Server Settings</b>"
+msgstr "<b>服务器设置</b>"
+
+
+#: app/ui/HomePage.qml:291 app/ui/ProfilePage.qml:93
+msgid "Profile Name"
+msgstr "配置名称"
+
+#: app/ui/HomePage.qml:309 app/ui/ProfilePage.qml:116
+msgid "Server"
+msgstr "服务器"
+
+#: app/ui/HomePage.qml:326 app/ui/ProfilePage.qml:135
+msgid "Remote Port"
+msgstr "远程端口"
+
+#: app/ui/HomePage.qml:360 app/ui/ProfilePage.qml:179
+msgid "Password"
+msgstr "密码"
+
+#: app/ui/HomePage.qml:398 app/ui/ProfilePage.qml:197
+msgid "Encrypt Method"
+msgstr "加密方式"
+
+#: app/ui/ProfilesPage.qml:127
+msgid "Can't switch profile when service is running!"
+msgstr "服务启动时不能切换配置！"
+
+#: app/ui/ProfilesPage.qml:150
+msgid "Please add new profiles"
+msgstr "请添加新配置"
+
+#: app/ui/ProfilePage.qml:12
+msgid "Profile"
+msgstr "配置"
+
+#: app/ui/ProfilePage.qml:29
+msgid "Close"
+msgstr "关闭"
+
+#: app/ui/ProfilePage.qml:85
+msgid "General Settings"
+msgstr "设置"
+
+#: app/ui/ProfilePage.qml:108
+msgid "Server Settings"
+msgstr "服务器设置"
+
+#: app/ui/ProfilePage.qml:156
+msgid "Local Port"
+msgstr "本地端口"
+
+#: app/component/NetworkTraffic.qml:37
+msgid "Testing..."
+msgstr "测试中..."
+
+#: app/component/NetworkTraffic.qml:63
+msgid "Success: "
+msgstr "成功："
+
+#: app/component/NetworkTraffic.qml:63
+msgid "ms latency"
+msgstr "ms 延迟"
+
+#: app/component/NetworkTraffic.qml:66
+msgid "Failed: time out"
+msgstr "失败：超时"
+
+#: app/component/NetworkTraffic.qml:69
+msgid "Failed: status code error"
+msgstr "失败：状态码错误"
+
+#: app/component/NetworkTraffic.qml:97
+msgid "Network Traffic"
+msgstr "网络流量"
+
+#: app/component/NetworkTraffic.qml:105
+msgid "Check Connectivity"
+msgstr "检查网络连接"
+
+#: app/component/NetworkTraffic.qml:116
+msgid "Received:"
+msgstr "接收："
+
+#: app/component/NetworkTraffic.qml:128
+msgid "Sent:"
+msgstr "发送："

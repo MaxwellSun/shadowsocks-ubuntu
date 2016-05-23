@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Shadowsocks
+Name[zh_CN]=影梭
 Exec=shadowsocks
 Icon=app/icon.png
 Terminal=false
