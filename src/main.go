@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"runtime"
 	"time"
 
 	"gopkg.in/qml.v1"
@@ -15,6 +16,20 @@ var (
 	root   qml.Object
 	tool   = &Tool{}
 )
+
+func init() {
+	pwd, err := os.Getwd()
+	if err != nil {
+		pwd = "."
+	}
+	path := os.Getenv("PATH")
+	if runtime.GOARCH == "arm" {
+		path += ":" + pwd + "/lib/arm-linux-gnueabihf/bin"
+	} else if runtime.GOARCH == "amd64" {
+		path += ":" + pwd + "/lib/x86_64-linux-gnu/bin"
+	}
+	os.Setenv("PATH", path)
+}
 
 func main() {
 	logger.Println("==START==")
@@ -60,6 +75,7 @@ func run() error {
 
 // Run redsocks proccess
 func runRedSocks(debug bool) {
+	logger.Println(exec.LookPath("redsocks"))
 	cmd := exec.Command("redsocks", "-c", "redsocks.conf")
 
 	if debug {
