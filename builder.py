@@ -26,16 +26,13 @@ def build_click():
     print("Copying files...", end="")
 
     shutil.rmtree("build", ignore_errors=True)
-    os.makedirs("build/lib/arm-linux-gnueabihf/bin")
+    os.mkdir("build")
 
     shutil.copy("manifest.json", "build")
     shutil.copy("apparmor.json", "build")
     shutil.copy("{}.desktop".format(app_name), "build")
     shutil.copytree("app", "build/app")
-    shutil.copy("armhf/redsocks", "build/lib/arm-linux-gnueabihf/bin/")
-    shutil.copy("armhf/chinadns", "build/lib/arm-linux-gnueabihf/bin/")
-    for file in glob("armhf/libevent-2.0.so*"):
-        shutil.copy(file, "build/lib/arm-linux-gnueabihf/")
+    shutil.copytree("lib", "build/lib")
     shutil.copy("redsocks.conf", "build")
     shutil.copy("chnroute.txt", "build")
 
@@ -148,12 +145,18 @@ def translation_update():
 
 
 def translation_po(language_code):
+    """
+    Generate po files
+    """
 
     command = "msginit -i po/{package_name}.pot -o po/{language_code}.po".format(package_name=package_name, language_code=language_code)
     subprocess.run(command, shell=True)
 
 
 def translations_mo():
+    """
+    Generate mo files
+    """
 
     lst = glob("po/*.po")
     for file in lst:
@@ -164,6 +167,9 @@ def translations_mo():
 
 
 def run_local():
+    """
+    Build and run for local test
+    """
 
     print("Building & run...")
     go_root = "/usr/local/lib/go1.5"
