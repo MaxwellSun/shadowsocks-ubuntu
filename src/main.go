@@ -75,7 +75,6 @@ func run() error {
 
 // Run redsocks proccess
 func runRedSocks(debug bool) {
-	logger.Println(exec.LookPath("redsocks"))
 	cmd := exec.Command("redsocks", "-c", "redsocks.conf")
 
 	if debug {
