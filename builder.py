@@ -38,6 +38,7 @@ def build_click():
     shutil.copy("chnroute.txt", "build")
 
     translations_mo()
+    shutil.copytree("share", "build/share")
 
     print("DONE")
 
@@ -162,8 +163,9 @@ def translations_mo():
     lst = glob("po/*.po")
     for file in lst:
         code = file.split(".")[0][3:]
-        os.makedirs("build/share/locale/{}/LC_MESSAGES".format(code))
-        command = "msgfmt po/{code}.po -o build/share/locale/{code}/LC_MESSAGES/{package}.mo".format(code=code, package=package_name)
+        shutil.rmtree("share", ignore_errors=True)
+        os.makedirs("share/locale/{}/LC_MESSAGES".format(code))
+        command = "msgfmt po/{code}.po -o share/locale/{code}/LC_MESSAGES/{package}.mo".format(code=code, package=package_name)
         subprocess.run(command, shell=True)
 
 

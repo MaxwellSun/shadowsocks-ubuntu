@@ -19,7 +19,7 @@ msgstr ""
 
 #: app/main.qml:54 app/ui/AboutPage.qml:95
 msgid "Shadowsocks"
-msgstr "影梭"
+msgstr "影梭 (Shadowsocks)"
 
 #: app/main.qml:67 app/ui/HomePage.qml:65 app/ui/ProfilesPage.qml:13
 #: app/ui/ProfilesPage.qml:27
