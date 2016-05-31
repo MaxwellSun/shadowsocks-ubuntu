@@ -176,7 +176,7 @@ def run_local():
 
     print("Building & run...")
     go_root = "/usr/local/lib/go1.5"
-    command = "GOROOT={go_root} {go_root}/bin/go build -o shadowsocks ./src && PATH=$PATH:. ./shadowsocks".format(go_root=go_root)
+    command = "GOROOT={go_root} {go_root}/bin/go build -o {app_name} ./src && PATH=$PATH:. ./{app_name}".format(go_root=go_root, app_name=app_name)
     subprocess.run(command, shell=True)
 
 
