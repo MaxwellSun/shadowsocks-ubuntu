@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shadowsocks.ubuntu-dawndiy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 01:59+0800\n"
+"POT-Creation-Date: 2016-06-04 19:16+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,8 +107,16 @@ msgstr ""
 msgid "Stopped"
 msgstr ""
 
+#: app/ui/HomePage.qml:162
+msgid "Service Start Failed: "
+msgstr ""
+
 #: app/ui/HomePage.qml:163
 msgid "Start Failed"
+msgstr ""
+
+#: app/ui/HomePage.qml:169
+msgid "Service Started"
 msgstr ""
 
 #: app/ui/HomePage.qml:196
