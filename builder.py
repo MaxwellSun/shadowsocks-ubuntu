@@ -38,7 +38,7 @@ def build_click():
     shutil.copy("redsocks.conf", "build")
     shutil.copy("chnroute.txt", "build")
 
-    translations_mo()
+    translation_mo()
     shutil.copytree("share", "build/share")
 
     print("DONE")
