@@ -24,7 +24,7 @@ MainView {
      * Show a notification
      */
     function notification(text, duration) {
-        var noti = Qt.createComponent(Qt.resolvedUrl("component/Notification.qml"))
+        var noti = Qt.createComponent(Qt.resolvedUrl("component/SnackBar.qml"))
         noti.createObject(root, {text: text, duration: duration})
     }
 

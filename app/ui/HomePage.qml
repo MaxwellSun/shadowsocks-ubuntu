@@ -159,14 +159,14 @@ Page {
                 Connections {
                     target: ssClient
                     onStartFailed: {
-                        notification("Service Start Failed: " + message, 5)
+                        notification(i18n.tr("Service Start Failed: ") + message, 5)
                         statusLabel.text = i18n.tr("Start Failed")
                         statusLabel.color = UbuntuColors.red
                         serviceSwitch.checked = false
                         serviceSwitch.enabled = true
                     }
                     onStartSucceed: {
-                        notification("Service Started", 5)
+                        notification(i18n.tr("Service Started"), 5)
                         statusLabel.text = i18n.tr("Started")
                         statusLabel.color = UbuntuColors.green
                         serviceSwitch.checked = true
