@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shadowsocks.ubuntu-dawndiy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-04 19:16+0800\n"
+"POT-Creation-Date: 2016-06-09 22:50+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,8 +102,8 @@ msgstr ""
 msgid "Started"
 msgstr ""
 
-#: app/ui/HomePage.qml:155 app/ui/HomePage.qml:176 app/ui/HomePage.qml:200
-#: app/ui/HomePage.qml:223 app/ui/HomePage.qml:231
+#: app/ui/HomePage.qml:155 app/ui/HomePage.qml:177 app/ui/HomePage.qml:202
+#: app/ui/HomePage.qml:225 app/ui/HomePage.qml:233
 msgid "Stopped"
 msgstr ""
 
@@ -119,39 +119,51 @@ msgstr ""
 msgid "Service Started"
 msgstr ""
 
-#: app/ui/HomePage.qml:196
+#: app/ui/HomePage.qml:176
+msgid "Service Stopped"
+msgstr ""
+
+#: app/ui/HomePage.qml:197
 msgid "Starting..."
 msgstr ""
 
-#: app/ui/HomePage.qml:199
+#: app/ui/HomePage.qml:198
+msgid "Service Starting..."
+msgstr ""
+
+#: app/ui/HomePage.qml:201
 msgid "Please select a profile first!"
 msgstr ""
 
-#: app/ui/HomePage.qml:239
+#: app/ui/HomePage.qml:241
 msgid "Stopping..."
 msgstr ""
 
-#: app/ui/HomePage.qml:283
+#: app/ui/HomePage.qml:242
+msgid "Service Stopping..."
+msgstr ""
+
+#: app/ui/HomePage.qml:286
 msgid "<b>Server Settings</b>"
 msgstr ""
 
-#: app/ui/HomePage.qml:291 app/ui/ProfilePage.qml:93
+#: app/ui/HomePage.qml:294 app/ui/ProfilePage.qml:93
 msgid "Profile Name"
 msgstr ""
 
-#: app/ui/HomePage.qml:309 app/ui/ProfilePage.qml:116
+#: app/ui/HomePage.qml:312 app/ui/ProfilePage.qml:116
 msgid "Server"
 msgstr ""
 
-#: app/ui/HomePage.qml:326 app/ui/ProfilePage.qml:135
+#: app/ui/HomePage.qml:329 app/ui/ProfilePage.qml:135
 msgid "Remote Port"
 msgstr ""
 
-#: app/ui/HomePage.qml:360 app/ui/ProfilePage.qml:179
+#: app/ui/HomePage.qml:363 app/ui/ProfilePage.qml:179
 msgid "Password"
 msgstr ""
 
-#: app/ui/HomePage.qml:398 app/ui/ProfilePage.qml:197
+#: app/ui/HomePage.qml:401 app/ui/ProfilePage.qml:197
 msgid "Encrypt Method"
 msgstr ""
 

@@ -173,6 +173,7 @@ Page {
                         serviceSwitch.enabled = true
                     }
                     onStopped: {
+                        notification(i18n.tr("Service Stopped"), 5)
                         statusLabel.text = i18n.tr("Stopped")
                         statusLabel.color = statusTitleLabel.color
                         serviceSwitch.checked = false
@@ -194,6 +195,7 @@ Page {
                         // Start service
                         if (checked) {
                             statusLabel.text = i18n.tr("Starting...")
+                            notification(i18n.tr("Service Starting..."))
                             // check if profile is valid
                             if (!profile) {
                                 notification(i18n.tr("Please select a profile first!"))
@@ -237,6 +239,7 @@ Page {
                         } else {
                             // Stop service
                             statusLabel.text = i18n.tr("Stopping...")
+                            notification(i18n.tr("Service Stopping..."))
                             statusLabel.color = statusTitleLabel.color
                             stopService()
                         }

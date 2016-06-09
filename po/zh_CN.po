@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shadowsocks.ubuntu-dawndiy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-04 19:16+0800\n"
-"PO-Revision-Date: 2016-06-04 19:29+0800\n"
+"POT-Creation-Date: 2016-06-09 22:50+0800\n"
+"PO-Revision-Date: 2016-06-09 22:50+0800\n"
 "Last-Translator: DawnDIY <chenglu1990@gmail.com>\n"
 "Language-Team: Chinese (simplified)\n"
 "Language: zh_CN\n"
@@ -103,8 +103,8 @@ msgstr "<b>状态</b>"
 msgid "Started"
 msgstr "已启动"
 
-#: app/ui/HomePage.qml:155 app/ui/HomePage.qml:176 app/ui/HomePage.qml:200
-#: app/ui/HomePage.qml:223 app/ui/HomePage.qml:231
+#: app/ui/HomePage.qml:155 app/ui/HomePage.qml:177 app/ui/HomePage.qml:202
+#: app/ui/HomePage.qml:225 app/ui/HomePage.qml:233
 msgid "Stopped"
 msgstr "已停止"
 
@@ -120,39 +120,51 @@ msgstr "启动失败"
 msgid "Service Started"
 msgstr "服务已启动"
 
-#: app/ui/HomePage.qml:196
+#: app/ui/HomePage.qml:176
+msgid "Service Stopped"
+msgstr "服务已停止"
+
+#: app/ui/HomePage.qml:197
 msgid "Starting..."
 msgstr "启动中..."
 
-#: app/ui/HomePage.qml:199
+#: app/ui/HomePage.qml:198
+msgid "Service Starting..."
+msgstr "服务启动中..."
+
+#: app/ui/HomePage.qml:201
 msgid "Please select a profile first!"
 msgstr "请先选择一个配置！"
 
-#: app/ui/HomePage.qml:239
+#: app/ui/HomePage.qml:241
 msgid "Stopping..."
 msgstr "停止中..."
 
-#: app/ui/HomePage.qml:283
+#: app/ui/HomePage.qml:242
+msgid "Service Stopping..."
+msgstr "服务停止中..."
+
+#: app/ui/HomePage.qml:286
 msgid "<b>Server Settings</b>"
 msgstr "<b>服务器设置</b>"
 
-#: app/ui/HomePage.qml:291 app/ui/ProfilePage.qml:93
+#: app/ui/HomePage.qml:294 app/ui/ProfilePage.qml:93
 msgid "Profile Name"
 msgstr "配置名称"
 
-#: app/ui/HomePage.qml:309 app/ui/ProfilePage.qml:116
+#: app/ui/HomePage.qml:312 app/ui/ProfilePage.qml:116
 msgid "Server"
 msgstr "服务器"
 
-#: app/ui/HomePage.qml:326 app/ui/ProfilePage.qml:135
+#: app/ui/HomePage.qml:329 app/ui/ProfilePage.qml:135
 msgid "Remote Port"
 msgstr "远程端口"
 
-#: app/ui/HomePage.qml:360 app/ui/ProfilePage.qml:179
+#: app/ui/HomePage.qml:363 app/ui/ProfilePage.qml:179
 msgid "Password"
 msgstr "密码"
 
-#: app/ui/HomePage.qml:398 app/ui/ProfilePage.qml:197
+#: app/ui/HomePage.qml:401 app/ui/ProfilePage.qml:197
 msgid "Encrypt Method"
 msgstr "加密方式"
 
