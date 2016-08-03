@@ -28,6 +28,7 @@ Page {
         ssClient.run()
 
         Tool.removeRedsocksChain()
+        Tool.shadowsocksServer = profile.server
         Tool.run()
     }
 
@@ -212,7 +213,6 @@ Page {
                                 var popup = PopupUtils.open(passwordPopup)
                                 // input password 
                                 popup.accepted.connect(function(password) {
-                                    Tool.shadowsocksServer = profile.server
                                     var result = Tool.checkPassword(password)
                                     console.log("password result:", result)
                                     if (result) {
