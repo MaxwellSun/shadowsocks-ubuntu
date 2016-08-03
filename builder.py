@@ -15,8 +15,17 @@ package_name = ".".join([app_name, nick_name])
 build_framework = "ubuntu-sdk-15.04"
 build_serise = "vivid"
 
-go_path = "/home/dawndiy/workspace/golang"
-go_root = "/usr/local/lib/go"
+go_root = "/usr/local/go"
+# go_path = "/home/dawndiy/workspace/golang"
+go_path = "{}/gopkg".format(os.getcwd())
+go_packages = [
+    "github.com/shadowsocks/shadowsocks-go/shadowsocks",
+    "github.com/skip2/go-qrcode",
+    "golang.org/x/crypto/blowfish",
+    "golang.org/x/crypto/cast5",
+    "golang.org/x/crypto/salsa20/salsa",
+    "gopkg.in/qml.v1",
+]
 
 
 def build_click():
@@ -137,14 +146,40 @@ def click_find():
     else:
         return None
 
-
-def translation_update():
+def get_go_packages():
     """
-    Update translations
+    Get or update go packages
     """
 
-    command = "find ./app -iname '*.qml' | xargs xgettext -o po/{package_name}.pot --from-code=UTF-8 --c++ --qt --add-comments=TRANSLATORS --keyword=tr --keyword=tr:1,2 --keyword=N_ --package-name='{package_name}'".format(package_name=package_name)
+    pkgs = " ".join(go_packages)
+
+    command = "GOPATH={go_path} {go_root}/bin/go get -u {pkgs}".format(go_path=go_path, go_root=go_root, pkgs=pkgs)
     subprocess.run(command, shell=True)
+
+
+def run_local():
+    """
+    Build and run for local test
+    """
+
+    print("Building & run...")
+    go_root = "/usr/local/go1.5"
+    command = "GOPATH={go_path} GOROOT={go_root} {go_root}/bin/go build -o {app_name} ./src && PATH=$PATH:. ./{app_name}".format(go_path=go_path, go_root=go_root, app_name=app_name)
+    subprocess.run(command, shell=True)
+
+
+def translation_mo():
+    """
+    Generate mo files
+    """
+
+    shutil.rmtree("share", ignore_errors=True)
+    lst = glob("po/*.po")
+    for file in lst:
+        code = file.split(".")[0][3:]
+        os.makedirs("share/locale/{}/LC_MESSAGES".format(code))
+        command = "msgfmt po/{code}.po -o share/locale/{code}/LC_MESSAGES/{package}.mo".format(code=code, package=package_name)
+        subprocess.run(command, shell=True)
 
 
 def translation_po(language_code):
@@ -168,36 +203,30 @@ def translation_po_update():
         subprocess.run(command, shell=True)
 
 
-def translation_mo():
+def translation_update():
     """
-    Generate mo files
-    """
-
-    shutil.rmtree("share", ignore_errors=True)
-    lst = glob("po/*.po")
-    for file in lst:
-        code = file.split(".")[0][3:]
-        os.makedirs("share/locale/{}/LC_MESSAGES".format(code))
-        command = "msgfmt po/{code}.po -o share/locale/{code}/LC_MESSAGES/{package}.mo".format(code=code, package=package_name)
-        subprocess.run(command, shell=True)
-
-
-def run_local():
-    """
-    Build and run for local test
+    Update translations
     """
 
-    print("Building & run...")
-    go_root = "/usr/local/lib/go1.5"
-    command = "GOROOT={go_root} {go_root}/bin/go build -o {app_name} ./src && PATH=$PATH:. ./{app_name}".format(go_root=go_root, app_name=app_name)
+    command = "find ./app -iname '*.qml' | xargs xgettext -o po/{package_name}.pot --from-code=UTF-8 --c++ --qt --add-comments=TRANSLATORS --keyword=tr --keyword=tr:1,2 --keyword=N_ --package-name='{package_name}'".format(package_name=package_name)
     subprocess.run(command, shell=True)
+
 
 
 if __name__ == "__main__":
 
-    click_find()
+    arguments = [
+        "build",
+        "install",
+        "run",
+        "update-go-packages",
+        "update-translations",
+        "update-po",
+        "update-mo",
+    ]
+
     parser = argparse.ArgumentParser()
-    parser.add_argument("operation", type=str, choices=["build", "install", "run", "update-translations", "update-po", "update-mo"])
+    parser.add_argument("operation", type=str, choices=arguments)
     args = parser.parse_args()
 
     if args.operation == "build":
@@ -207,6 +236,8 @@ if __name__ == "__main__":
         click_install()
     elif args.operation == "run":
         run_local()
+    elif args.operation == "update-go-packages":
+        get_go_packages()
     elif args.operation == "update-translations":
         translation_update()
     elif args.operation == "update-po":

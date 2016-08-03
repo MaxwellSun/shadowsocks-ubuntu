@@ -6,7 +6,7 @@
     "framework": "ubuntu-sdk-15.04.4",
     "architecture": "armhf",
     "maintainer": "DawnDIY <chenglu1990@gmail.com>",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "hooks": {
         "shadowsocks": {
             "apparmor": "apparmor.json",
