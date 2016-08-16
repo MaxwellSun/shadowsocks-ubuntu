@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shadowsocks.ubuntu-dawndiy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-09 22:50+0800\n"
-"PO-Revision-Date: 2016-06-09 22:50+0800\n"
+"POT-Creation-Date: 2016-08-16 19:07+0800\n"
+"PO-Revision-Date: 2016-08-16 19:14+0800\n"
 "Last-Translator: DawnDIY <chenglu1990@gmail.com>\n"
 "Language-Team: Chinese (simplified)\n"
 "Language: zh_CN\n"
@@ -18,22 +18,81 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Gtranslator 2.91.7\n"
 
-#: app/main.qml:54 app/ui/AboutPage.qml:95
-msgid "Shadowsocks"
-msgstr "影梭 (Shadowsocks)"
+#: app/component/NetworkTraffic.qml:16
+msgid "Testing..."
+msgstr "测试中..."
 
-#: app/main.qml:67 app/ui/HomePage.qml:65 app/ui/ProfilesPage.qml:13
-#: app/ui/ProfilesPage.qml:27
-msgid "Profiles"
+#: app/component/NetworkTraffic.qml:42
+msgid "Success: "
+msgstr "成功："
+
+#: app/component/NetworkTraffic.qml:42
+msgid "ms latency"
+msgstr "ms 延迟"
+
+#: app/component/NetworkTraffic.qml:45
+msgid "Failed: time out"
+msgstr "失败：超时"
+
+#: app/component/NetworkTraffic.qml:48
+msgid "Failed: status code error"
+msgstr "失败：状态码错误"
+
+#: app/component/NetworkTraffic.qml:76
+msgid "Network Traffic"
+msgstr "网络流量"
+
+#: app/component/NetworkTraffic.qml:84
+msgid "Check Connectivity"
+msgstr "检查网络连接"
+
+#: app/component/NetworkTraffic.qml:95
+msgid "Received:"
+msgstr "接收："
+
+#: app/component/NetworkTraffic.qml:107
+msgid "Sent:"
+msgstr "发送："
+
+#: app/ui/ProfilePage.qml:12
+msgid "Profile"
 msgstr "配置"
 
-#: app/main.qml:97
-msgid "Enter password"
-msgstr "输入密码"
+#: app/ui/ProfilePage.qml:29
+msgid "Close"
+msgstr "关闭"
 
-#: app/main.qml:98
-msgid "Your password is required for this action"
-msgstr "该操作需要你的密码"
+#: app/ui/ProfilePage.qml:85
+msgid "General Settings"
+msgstr "设置"
+
+#: app/ui/ProfilePage.qml:93 app/ui/HomePage.qml:294
+msgid "Profile Name"
+msgstr "配置名称"
+
+#: app/ui/ProfilePage.qml:108
+msgid "Server Settings"
+msgstr "服务器设置"
+
+#: app/ui/ProfilePage.qml:116 app/ui/HomePage.qml:312
+msgid "Server"
+msgstr "服务器"
+
+#: app/ui/ProfilePage.qml:135 app/ui/HomePage.qml:329
+msgid "Remote Port"
+msgstr "远程端口"
+
+#: app/ui/ProfilePage.qml:156
+msgid "Local Port"
+msgstr "本地端口"
+
+#: app/ui/ProfilePage.qml:179 app/ui/HomePage.qml:363
+msgid "Password"
+msgstr "密码"
+
+#: app/ui/ProfilePage.qml:197 app/ui/HomePage.qml:401
+msgid "Encrypt Method"
+msgstr "加密方式"
 
 #: app/ui/AboutPage.qml:9 app/ui/AboutPage.qml:19
 msgid "About"
@@ -68,6 +127,10 @@ msgstr "创建者"
 msgid "Powered by"
 msgstr "基于"
 
+#: app/ui/AboutPage.qml:95 app/main.qml:82
+msgid "Shadowsocks"
+msgstr "影梭 (Shadowsocks)"
+
 #. TRANSLATORS: Shadowsocks version number e.g Version 1.0.0
 #: app/ui/AboutPage.qml:101
 #, qt-format
@@ -87,52 +150,73 @@ msgstr "以 GNU GPL v3 条款发布"
 msgid "Source code available on %1"
 msgstr "在 %1 上提供源代码"
 
-#: app/ui/HomePage.qml:58 app/ui/ProfilesPage.qml:20
+#: app/ui/ProfilesPage.qml:19 app/ui/ProfilesPage.qml:33 app/ui/HomePage.qml:66
+#: app/main.qml:95
+msgid "Profiles"
+msgstr "配置"
+
+#: app/ui/ProfilesPage.qml:26 app/ui/HomePage.qml:59
 msgid "Home"
 msgstr "首页"
 
-#: app/ui/HomePage.qml:126
+#: app/ui/ProfilesPage.qml:94
+msgid "Can't delete profile when service is running!"
+msgstr "服务启动时不能删除配置！"
+
+#: app/ui/ProfilesPage.qml:110
+msgid "Can't modify profile when service is running!"
+msgstr "服务启动时不能修改配置！"
+
+#: app/ui/ProfilesPage.qml:130
+msgid "Can't switch profile when service is running!"
+msgstr "服务启动时不能切换配置！"
+
+#: app/ui/ProfilesPage.qml:182
+msgid "Please add new profiles"
+msgstr "请添加新配置"
+
+#: app/ui/HomePage.qml:127
 msgid "<b>Profile</b>:"
 msgstr "<b>配置</b>"
 
-#: app/ui/HomePage.qml:136
+#: app/ui/HomePage.qml:137
 msgid "<b>Status</b>:"
 msgstr "<b>状态</b>"
 
-#: app/ui/HomePage.qml:155 app/ui/HomePage.qml:170
+#: app/ui/HomePage.qml:156 app/ui/HomePage.qml:171
 msgid "Started"
 msgstr "已启动"
 
-#: app/ui/HomePage.qml:155 app/ui/HomePage.qml:177 app/ui/HomePage.qml:202
+#: app/ui/HomePage.qml:156 app/ui/HomePage.qml:178 app/ui/HomePage.qml:203
 #: app/ui/HomePage.qml:225 app/ui/HomePage.qml:233
 msgid "Stopped"
 msgstr "已停止"
 
-#: app/ui/HomePage.qml:162
+#: app/ui/HomePage.qml:163
 msgid "Service Start Failed: "
 msgstr "服务启动失败："
 
-#: app/ui/HomePage.qml:163
+#: app/ui/HomePage.qml:164
 msgid "Start Failed"
 msgstr "启动失败"
 
-#: app/ui/HomePage.qml:169
+#: app/ui/HomePage.qml:170
 msgid "Service Started"
 msgstr "服务已启动"
 
-#: app/ui/HomePage.qml:176
+#: app/ui/HomePage.qml:177
 msgid "Service Stopped"
 msgstr "服务已停止"
 
-#: app/ui/HomePage.qml:197
+#: app/ui/HomePage.qml:198
 msgid "Starting..."
 msgstr "启动中..."
 
-#: app/ui/HomePage.qml:198
+#: app/ui/HomePage.qml:199
 msgid "Service Starting..."
 msgstr "服务启动中..."
 
-#: app/ui/HomePage.qml:201
+#: app/ui/HomePage.qml:202
 msgid "Please select a profile first!"
 msgstr "请先选择一个配置！"
 
@@ -148,86 +232,10 @@ msgstr "服务停止中..."
 msgid "<b>Server Settings</b>"
 msgstr "<b>服务器设置</b>"
 
-#: app/ui/HomePage.qml:294 app/ui/ProfilePage.qml:93
-msgid "Profile Name"
-msgstr "配置名称"
+#: app/main.qml:112
+msgid "Enter password"
+msgstr "输入密码"
 
-#: app/ui/HomePage.qml:312 app/ui/ProfilePage.qml:116
-msgid "Server"
-msgstr "服务器"
-
-#: app/ui/HomePage.qml:329 app/ui/ProfilePage.qml:135
-msgid "Remote Port"
-msgstr "远程端口"
-
-#: app/ui/HomePage.qml:363 app/ui/ProfilePage.qml:179
-msgid "Password"
-msgstr "密码"
-
-#: app/ui/HomePage.qml:401 app/ui/ProfilePage.qml:197
-msgid "Encrypt Method"
-msgstr "加密方式"
-
-#: app/ui/ProfilesPage.qml:127
-msgid "Can't switch profile when service is running!"
-msgstr "服务启动时不能切换配置！"
-
-#: app/ui/ProfilesPage.qml:150
-msgid "Please add new profiles"
-msgstr "请添加新配置"
-
-#: app/ui/ProfilePage.qml:12
-msgid "Profile"
-msgstr "配置"
-
-#: app/ui/ProfilePage.qml:29
-msgid "Close"
-msgstr "关闭"
-
-#: app/ui/ProfilePage.qml:85
-msgid "General Settings"
-msgstr "设置"
-
-#: app/ui/ProfilePage.qml:108
-msgid "Server Settings"
-msgstr "服务器设置"
-
-#: app/ui/ProfilePage.qml:156
-msgid "Local Port"
-msgstr "本地端口"
-
-#: app/component/NetworkTraffic.qml:37
-msgid "Testing..."
-msgstr "测试中..."
-
-#: app/component/NetworkTraffic.qml:63
-msgid "Success: "
-msgstr "成功："
-
-#: app/component/NetworkTraffic.qml:63
-msgid "ms latency"
-msgstr "ms 延迟"
-
-#: app/component/NetworkTraffic.qml:66
-msgid "Failed: time out"
-msgstr "失败：超时"
-
-#: app/component/NetworkTraffic.qml:69
-msgid "Failed: status code error"
-msgstr "失败：状态码错误"
-
-#: app/component/NetworkTraffic.qml:97
-msgid "Network Traffic"
-msgstr "网络流量"
-
-#: app/component/NetworkTraffic.qml:105
-msgid "Check Connectivity"
-msgstr "检查网络连接"
-
-#: app/component/NetworkTraffic.qml:116
-msgid "Received:"
-msgstr "接收："
-
-#: app/component/NetworkTraffic.qml:128
-msgid "Sent:"
-msgstr "发送："
+#: app/main.qml:113
+msgid "Your password is required for this action"
+msgstr "该操作需要你的密码"

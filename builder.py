@@ -205,7 +205,7 @@ def translation_po_update():
 
 def translation_update():
     """
-    Update translations
+    Update translations, new POT file
     """
 
     command = "find ./app -iname '*.qml' | xargs xgettext -o po/{package_name}.pot --from-code=UTF-8 --c++ --qt --add-comments=TRANSLATORS --keyword=tr --keyword=tr:1,2 --keyword=N_ --package-name='{package_name}'".format(package_name=package_name)
