@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shadowsocks.ubuntu-dawndiy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-16 19:07+0800\n"
-"PO-Revision-Date: 2016-08-16 19:14+0800\n"
+"POT-Creation-Date: 2016-08-16 23:11+0800\n"
+"PO-Revision-Date: 2016-08-16 23:12+0800\n"
 "Last-Translator: DawnDIY <chenglu1990@gmail.com>\n"
 "Language-Team: Chinese (simplified)\n"
 "Language: zh_CN\n"
@@ -127,25 +127,25 @@ msgstr "创建者"
 msgid "Powered by"
 msgstr "基于"
 
-#: app/ui/AboutPage.qml:95 app/main.qml:82
+#: app/ui/AboutPage.qml:99 app/main.qml:82
 msgid "Shadowsocks"
 msgstr "影梭 (Shadowsocks)"
 
 #. TRANSLATORS: Shadowsocks version number e.g Version 1.0.0
-#: app/ui/AboutPage.qml:101
+#: app/ui/AboutPage.qml:105
 #, qt-format
 msgid "Version %1"
 msgstr "版本 %1"
 
-#: app/ui/AboutPage.qml:109
+#: app/ui/AboutPage.qml:113
 msgid "A Shadowsocks client for Ubuntu, written in Golang."
 msgstr "Golang 编写的 Ubuntu 版 Shadowsocks 客户端。"
 
-#: app/ui/AboutPage.qml:129
+#: app/ui/AboutPage.qml:133
 msgid "Released under the terms of the GNU GPL v3"
 msgstr "以 GNU GPL v3 条款发布"
 
-#: app/ui/AboutPage.qml:139
+#: app/ui/AboutPage.qml:143
 #, qt-format
 msgid "Source code available on %1"
 msgstr "在 %1 上提供源代码"
@@ -239,3 +239,11 @@ msgstr "输入密码"
 #: app/main.qml:113
 msgid "Your password is required for this action"
 msgstr "该操作需要你的密码"
+
+#: app/main.qml:124
+msgid "OK"
+msgstr "确认"
+
+#: app/main.qml:133
+msgid "Cancel"
+msgstr "取消"

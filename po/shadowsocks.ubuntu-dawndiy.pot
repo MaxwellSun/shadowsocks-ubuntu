@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: shadowsocks.ubuntu-dawndiy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-16 19:07+0800\n"
+"POT-Creation-Date: 2016-08-16 23:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,25 +126,25 @@ msgstr ""
 msgid "Powered by"
 msgstr ""
 
-#: app/ui/AboutPage.qml:95 app/main.qml:82
+#: app/ui/AboutPage.qml:99 app/main.qml:82
 msgid "Shadowsocks"
 msgstr ""
 
 #. TRANSLATORS: Shadowsocks version number e.g Version 1.0.0
-#: app/ui/AboutPage.qml:101
+#: app/ui/AboutPage.qml:105
 #, qt-format
 msgid "Version %1"
 msgstr ""
 
-#: app/ui/AboutPage.qml:109
+#: app/ui/AboutPage.qml:113
 msgid "A Shadowsocks client for Ubuntu, written in Golang."
 msgstr ""
 
-#: app/ui/AboutPage.qml:129
+#: app/ui/AboutPage.qml:133
 msgid "Released under the terms of the GNU GPL v3"
 msgstr ""
 
-#: app/ui/AboutPage.qml:139
+#: app/ui/AboutPage.qml:143
 #, qt-format
 msgid "Source code available on %1"
 msgstr ""
@@ -237,4 +237,12 @@ msgstr ""
 
 #: app/main.qml:113
 msgid "Your password is required for this action"
+msgstr ""
+
+#: app/main.qml:124
+msgid "OK"
+msgstr ""
+
+#: app/main.qml:133
+msgid "Cancel"
 msgstr ""
