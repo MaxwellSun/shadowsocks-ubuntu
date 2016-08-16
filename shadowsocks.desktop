@@ -6,4 +6,5 @@ Icon=app/icon.png
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
-X-Ubuntu-Splash-Color=#ffffff
+X-Ubuntu-Splash-Image=splash.png
+X-Ubuntu-Splash-Color=#4caf50

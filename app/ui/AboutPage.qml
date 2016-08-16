@@ -75,13 +75,17 @@ Page {
                         topMargin: units.gu(5)
                     }
 
-                    Image {
-                        height: width
+                    UbuntuShape {
                         width: Math.min(parent.width/2, parent.height/2)
-                        source: Qt.resolvedUrl("../icon.png")
-                        // sourceSize.width: units.gu(20)
-                        // sourceSize.height: units.gu(20)
+                        height: width
                         anchors.horizontalCenter: parent.horizontalCenter
+                        source: Image {
+                            source: Qt.resolvedUrl("../icon.png")
+                            // sourceSize.width: units.gu(20)
+                            // sourceSize.height: units.gu(20)
+                        }
+                        radius: "large"
+                        aspect: UbuntuShape.DropShadow
                     }
 
                     Column {

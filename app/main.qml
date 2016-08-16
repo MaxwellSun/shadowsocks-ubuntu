@@ -121,7 +121,7 @@ MainView {
             }
 
             Button {
-                text: "OK"
+                text: i18n.tr("OK")
                 color: UbuntuColors.green
                 onClicked: {
                     passwordDialog.accepted(passwordText.text)
@@ -130,7 +130,7 @@ MainView {
             }
 
             Button {
-                text: "Cancel"
+                text: i18n.tr("Cancel")
                 color: UbuntuColors.red
                 onClicked: {
                     passwordDialog.rejected()

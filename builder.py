@@ -46,6 +46,7 @@ def build_click():
     shutil.copy("{}.desktop".format(app_name), "build")
     shutil.copy("redsocks.conf", "build")
     shutil.copy("chnroute.txt", "build")
+    shutil.copy("splash.png", "build")
 
     translation_mo()
     shutil.copytree("share", "build/share")
@@ -163,7 +164,7 @@ def run_local():
     """
 
     print("Building & run...")
-    go_root = "/usr/local/go1.5"
+    # go_root = "/usr/local/go1.5"
     command = "GOPATH={go_path} GOROOT={go_root} {go_root}/bin/go build -o {app_name} ./src && PATH=$PATH:. ./{app_name}".format(go_path=go_path, go_root=go_root, app_name=app_name)
     subprocess.run(command, shell=True)
 
