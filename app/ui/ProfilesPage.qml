@@ -86,9 +86,13 @@ Page {
                                 iconName: "delete"
                                 onTriggered: {
                                     console.log("DEL")
-                                    storage.profileDel(profileList[index].id)
-                                    root.profile = null
-                                    updateProfiles()
+                                    if (!ssClient.running) {
+                                        storage.profileDel(profileList[index].id)
+                                        root.profile = null
+                                        updateProfiles()
+                                    } else {
+                                        notification(i18n.tr("Can't delete profile when service is running!"))
+                                    }
                                 }
                             }
                         ]
@@ -100,7 +104,11 @@ Page {
                                 iconName: "edit"
                                 onTriggered: {
                                     console.log("EDIT")
-                                    mainPageStack.push(Qt.resolvedUrl("ProfilePage.qml"), {ssProfile: profileList[index]})
+                                    if (!ssClient.running) {
+                                        mainPageStack.push(Qt.resolvedUrl("ProfilePage.qml"), {ssProfile: profileList[index]})
+                                    } else {
+                                        notification(i18n.tr("Can't modify profile when service is running!"))
+                                    }
                                 }
                             },
                             Action {
