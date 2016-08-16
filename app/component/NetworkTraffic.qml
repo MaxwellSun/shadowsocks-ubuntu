@@ -8,27 +8,6 @@ ListItem {
     property double sentRecord: 0
     property double receivedRecord: 0
 
-    function formatTraffic(bytes) {
-        var num = 0, unit = "Bytes";
-        if (bytes < 1024) {
-            num = bytes
-            unit = "Bytes"
-        } else if (bytes < 1024*1024) {
-            num = bytes / 1024
-            unit = "KB"
-        } else if (bytes < 1024*1024*1024) {
-            num = bytes / (1024*1024)
-            unit = "MB"
-        } else if (bytes < 1024*1024*1024*1024) {
-            num = bytes / (1024*1024*1024)
-            unit = "GB"
-        }
-        if ((num % 1) > 0) {
-            num = num.toFixed(2)
-        }
-        return num + " " + unit
-    }
-
     height: units.gu(10)
 
     onClicked: {

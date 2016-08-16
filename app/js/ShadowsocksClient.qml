@@ -15,34 +15,6 @@ ShadowsocksClient {
     signal sent(string n)
     signal received(string n)
 
-    onStartFailed: {
-        console.log("[Signal]: onStartedFailed", message)
-    }
-
-    onStartSucceed: {
-        console.log("[Signal]: onStartSucceed")
-    }
-
-    onCheckFinished: {
-        console.log("[Signal]: onCheckFinished", message)
-    }
-
-    onStopped: {
-        console.log("[Signal]: onStopped")
-    }
-
-    onLog: {
-        console.log("[Signal]: onLog", message)
-    }
-
-    onSent: {
-        sentBytes += Number(n)
-    }
-
-    onReceived: {
-        receivedBytes += Number(n)
-    }
-
     /**
      * go-qml can not emit signal from go side,
      * so use a function to emit signal.
@@ -68,5 +40,35 @@ ShadowsocksClient {
         } catch (e) {
             console.error("[ERROR]", e)
         }
+    }
+
+    onStartFailed: {
+        console.log("[Signal]: onStartedFailed", message)
+    }
+
+    onStartSucceed: {
+        console.log("[Signal]: onStartSucceed")
+    }
+
+    onCheckFinished: {
+        console.log("[Signal]: onCheckFinished", message)
+    }
+
+    onStopped: {
+        console.log("[Signal]: onStopped")
+    }
+
+    onLog: {
+        console.log("[Signal]: onLog", message)
+    }
+
+    onSent: {
+        sentBytes += Number(n)
+        storage.updateProfileSent(root.profile.id, Number(n))
+    }
+
+    onReceived: {
+        receivedBytes += Number(n)
+        storage.updateProfileReceived(root.profile.id, Number(n))
     }
 }

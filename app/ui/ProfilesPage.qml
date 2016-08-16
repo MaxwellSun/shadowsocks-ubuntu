@@ -9,6 +9,12 @@ Page {
 
     property var profileList: []
 
+    function updateProfiles() {
+        storage.profileAll(function(data) {
+            profileList = data;
+        });
+    }
+
     header: SSHeader {
         title: i18n.tr("Profiles")
 
@@ -56,12 +62,6 @@ Page {
         updateProfiles()
     }
 
-    function updateProfiles() {
-        storage.profileAll(function(data) {
-            profileList = data;
-        });
-    }
-
     Flickable {
 
         id: flickable
@@ -79,12 +79,7 @@ Page {
             Repeater {
                 model: profileList
                 ListItem {
-                    Label {
-                        anchors.left: parent.left
-                        anchors.leftMargin: units.gu(2)
-                        anchors.verticalCenter: parent.verticalCenter;
-                        text: profileList[index].name
-                    }
+
                     leadingActions: ListItemActions {
                         actions: [
                             Action {
@@ -126,6 +121,35 @@ Page {
                         } else {
                             notification(i18n.tr("Can't switch profile when service is running!"))
                         }
+                    }
+
+                    Label {
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(2)
+                        anchors.verticalCenter: parent.verticalCenter;
+                        text: profileList[index].name
+                    }
+
+                    Label {
+                        id: labelDown
+                        anchors {
+                            right: parent.right
+                            rightMargin: units.gu(2)
+                            verticalCenter: parent.verticalCenter;
+                        }
+                        text: "🔽 " + formatTraffic(profileList[index].received)
+                        fontSize: "small"
+                    }
+
+                    Label {
+                        id: labelUp
+                        anchors {
+                            right: labelDown.left
+                            rightMargin: units.gu(2)
+                            verticalCenter: parent.verticalCenter;
+                        }
+                        text: "🔼 " + formatTraffic(profileList[index].sent)
+                        fontSize: "small"
                     }
                 }
             }

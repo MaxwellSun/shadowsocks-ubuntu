@@ -15,11 +15,22 @@ Item {
 
         if (db.version === "") {
             db.changeVersion("", "1.0.0", function(tx) {
-                tx.executeSql("create table if not exists profile(id integer primary key autoincrement, name text, server text, remote_port integer, local_port integer, password text, method text)");
+                tx.executeSql("CREATE TABLE IF NOT EXISTS profile(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, server TEXT, remote_port INTEGER, local_port INTEGER, password TEXT, method TEXT)");
 
-                tx.executeSql("create table if not exists config(key text, value text)");
+                tx.executeSql("CREATE TABLE IF NOT EXISTS config(key TEXT, value TEXT)");
                 console.log('Database created');
             });
+            // reopen database with new version number
+            db = LocalStorage.openDatabaseSync("Shadowsocks", "", "Database of Shadowsocks", 10000000);
+        }
+
+        if (db.version === "1.0.0") {
+            console.debug("[DATABASE]: Upgrade 1.0.0 -> 1.0.5")
+            // Add server traffic statistics
+            db.changeVersion("1.0.0", "1.0.5", function(tx) {
+                tx.executeSql("ALTER TABLE profile ADD sent INTEGER DEFAULT 0")
+                tx.executeSql("ALTER TABLE profile ADD received INTEGER DEFAULT 0")
+            })
             // reopen database with new version number
             db = LocalStorage.openDatabaseSync("Shadowsocks", "", "Database of Shadowsocks", 10000000);
         }
@@ -32,13 +43,13 @@ Item {
             if (profile.id) {
                 console.log("update")
                 tx.executeSql(
-                    "update profile set name=?, server=?, remote_port=?, local_port=?, password=?, method=? where id=?",
+                    "UPDATE profile SET name=?, server=?, remote_port=?, local_port=?, password=?, method=? where id=?",
                     [profile.name, profile.server, profile.remote_port, profile.local_port, profile.password, profile.method, profile.id]
                 )
             } else {
                 console.log("insert")
                 tx.executeSql(
-                    "insert into profile(name, server, remote_port, local_port, password, method) values(?, ?, ?, ?, ?, ?)",
+                    "INSERT INTO profile(name, server, remote_port, local_port, password, method) VALUES(?, ?, ?, ?, ?, ?)",
                     [profile.name, profile.server, profile.remote_port, profile.local_port, profile.password, profile.method]
                 )
             }
@@ -50,7 +61,7 @@ Item {
         db.transaction(function(tx) {
             console.log("--id: ", id)
             tx.executeSql(
-                "delete from profile where id=?",
+                "DELETE FROM profile WHERE id=?",
                 [id]
             )
         });
@@ -61,7 +72,7 @@ Item {
         var profile;
         db.transaction(function(tx) {
             var rs = tx.executeSql(
-                "select id, name, server, remote_port, local_port, password, method from profile where name=?",
+                "SELECT id, name, server, remote_port, local_port, password, method, sent, received FROM profile WHERE name=?",
                 [name]
             );
             if (rs.rows.length != 0) {
@@ -76,7 +87,7 @@ Item {
         var profile;
         db.transaction(function(tx) {
             var rs = tx.executeSql(
-                "select id, name, server, remote_port, local_port, password, method from profile where id=?",
+                "SELECT id, name, server, remote_port, local_port, password, method, sent, received FROM profile WHERE id=?",
                 [id]
             );
             if (rs.rows.length != 0) {
@@ -90,7 +101,7 @@ Item {
         openDB();
         var profiles = [];
         db.transaction(function(tx) {
-            var rs = tx.executeSql("select id, name, server, remote_port, local_port, password, method from profile");
+            var rs = tx.executeSql("SELECT id, name, server, remote_port, local_port, password, method, sent, received FROM profile");
             for (var i = 0; i < rs.rows.length; i++) {
                 profiles.push(rs.rows.item(i))
             }
@@ -101,7 +112,7 @@ Item {
     function configGet(key, cb) {
         openDB();
         db.transaction(function(tx) {
-            var rs = tx.executeSql("select value from config where key=?", [key])
+            var rs = tx.executeSql("SELECT value FROM config WHERE key=?", [key])
             if (rs.rows.length != 0) {
                 cb(rs.rows.item(0).value);
             } else {
@@ -113,8 +124,22 @@ Item {
     function configSet(key, value) {
         openDB();
         db.transaction(function(tx) {
-            tx.executeSql("delete from config where key=?", [key])
-            tx.executeSql("insert into config values(?, ?)", [key, value])
+            tx.executeSql("DELETE FROM config WHERE key=?", [key])
+            tx.executeSql("INSERT INTO config VALUES(?, ?)", [key, value])
+        })
+    }
+
+    function updateProfileSent(id, sentBytes) {
+        openDB();
+        db.transaction(function(tx) {
+            tx.executeSql("UPDATE profile SET sent=sent+? WHERE id=?", [sentBytes, id])
+        })
+    }
+
+    function updateProfileReceived(id, receivedBytes) {
+        openDB();
+        db.transaction(function(tx) {
+            tx.executeSql("UPDATE profile SET received=received+? WHERE id=?", [receivedBytes, id])
         })
     }
 }

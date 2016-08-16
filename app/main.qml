@@ -28,6 +28,34 @@ MainView {
         noti.createObject(root, {text: text, duration: duration})
     }
 
+    /**
+     * Traffic Formatter
+     */
+    function formatTraffic(bytes) {
+        var num = 0, unit = "Bytes";
+        if (bytes < 1024) {
+            num = bytes
+            unit = "Bytes"
+        } else if (bytes < 1024*1024) {
+            num = bytes / 1024
+            unit = "KB"
+        } else if (bytes < 1024*1024*1024) {
+            num = bytes / (1024*1024)
+            unit = "MB"
+        } else if (bytes < 1024*1024*1024*1024) {
+            num = bytes / (1024*1024*1024)
+            unit = "GB"
+        } else {
+            num = bytes / (1024*1024*1024*1024)
+            unit = "TB"
+        }
+        if ((num % 1) > 0) {
+            num = num.toFixed(2)
+        }
+        return num + " " + unit
+    }
+
+
     ShadowsocksClient {
         id: ssClient
         objectName: "ssClient"
@@ -74,19 +102,6 @@ MainView {
                     source: (tabs.selectedTab === profilesTab) ? Qt.resolvedUrl("ui/ProfilesPage.qml") : ""
                 }
             }
-
-            // Tab {
-            //     id: aboutTab
-            //     title: i18n.tr("About")
-            //     page: Loader {
-            //         parent: aboutTab
-            //         anchors.top: parent.top
-            //         anchors.left: parent.left
-            //         anchors.right: parent.right
-            //         anchors.bottom: parent.bottom
-            //         source: (tabs.selectedTab === aboutTab) ? Qt.resolvedUrl("ui/AboutPage.qml") : ""
-            //     }
-            // }
         }
     }
 
