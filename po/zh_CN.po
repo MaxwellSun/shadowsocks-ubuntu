@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: shadowsocks.ubuntu-dawndiy\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-16 23:11+0800\n"
-"PO-Revision-Date: 2016-08-16 23:12+0800\n"
+"PO-Revision-Date: 2016-08-16 23:19+0800\n"
 "Last-Translator: DawnDIY <chenglu1990@gmail.com>\n"
 "Language-Team: Chinese (simplified)\n"
 "Language: zh_CN\n"
@@ -177,11 +177,11 @@ msgstr "请添加新配置"
 
 #: app/ui/HomePage.qml:127
 msgid "<b>Profile</b>:"
-msgstr "<b>配置</b>"
+msgstr "<b>配置</b>:"
 
 #: app/ui/HomePage.qml:137
 msgid "<b>Status</b>:"
-msgstr "<b>状态</b>"
+msgstr "<b>状态</b>:"
 
 #: app/ui/HomePage.qml:156 app/ui/HomePage.qml:171
 msgid "Started"
