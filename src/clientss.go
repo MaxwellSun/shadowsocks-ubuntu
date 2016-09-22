@@ -126,7 +126,7 @@ func (sc *ShadowsocksClient) CheckConnectivity() {
 	ch := make(chan string)
 
 	go func(ch chan string) {
-		testURL := "https://www.google.com/generate_204"
+		testURL := "https://connectivitycheck.gstatic.com/generate_204"
 		client := &http.Client{}
 		client.Timeout = time.Second * 5
 		start := time.Now().UnixNano()
