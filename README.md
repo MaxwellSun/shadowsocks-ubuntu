@@ -1,19 +1,24 @@
 # shadowsocks-ubuntu
 
+[![Ubuntu Touch](https://img.shields.io/badge/ubuntu-touch-e95420.svg)]()
+[![GitHub release](https://img.shields.io/github/release/dawndiy/shadowsocks-ubuntu.svg?maxAge=2592000)]()
+[![GitHub license](https://img.shields.io/badge/license-AGPL-blue.svg)](https://raw.githubusercontent.com/dawndiy/shadowsocks-ubuntu/master/LICENSE)
+[![Github All Releases](https://img.shields.io/github/downloads/dawndiy/shadowsocks-ubuntu/total.svg?maxAge=2592000)]()
+
 Shadowsocks-ubuntu is a [shadowsocks](https://shadowsocks.org) client for Ubuntu Touch
 
 ## What is shadowsocks?
 A secure socks5 proxy, designed to protect your Internet traffic.  
 Shadowsocks-ubuntu is designed to be a global proxy for Ubuntu Touch.
 
-## Build & Install
-
-### Install
-You can find the latest click package in [HERE](https://github.com/dawndiy/shadowsocks-ubuntu/releases).  
+## Install
+You can find the latest click package in [**HERE**](https://github.com/dawndiy/shadowsocks-ubuntu/releases).  
 Copy the .click file to phone's home folder via adb: `adb push <PACKAGE-FILE> /home/phablet/`  
-Run `adb push pkcon install-local --allow-untrusted <PACKAGE-FILE>` to install.
+Run `adb shell 'pkcon install-local --allow-untrusted <PACKAGE-FILE>'` to install.
 
-### Build
+Now, you can also find & install it from [OpenStore](https://open.uappexplorer.com/app/shadowsocks.ubuntu-dawndiy).
+
+## Build
 Shadowsocks-ubuntu is written in Golang. You must has golang installed before build it from source code.  
 How to install golang: https://golang.org/doc/install  
 NOTE: use go1.5 for build, not use go1.6 now.
@@ -26,21 +31,16 @@ Shadowsocks-ubuntu is build on these projects, and thanks for these projects:
 - [redsocks](https://github.com/darkk/redsocks)
 - [go-qrcode](https://github.com/skip2/go-qrcode)
 
-#### Install necessary libraries: 
+**builder.py** is a simple script written in python3 for build Shadowsocks-ubuntu.
 
-```
-$ go get gopkg.in/qml.v1
-$ sudo add-apt-repository ppa:ubuntu-sdk-team/ppa
-$ sudo apt-get update
-$ sudo apt-get install qtdeclarative5-dev qtbase5-private-dev qtdeclarative5-private-dev libqt5opengl5-dev qtdeclarative5-qtquick2-plugin
-```
+### Install necessary libraries: 
 
+```bash
+$ ./builder.py update-go-packages
 ```
-go get github.com/shadowsocks/shadowsocks-go
-go get github.com/skip2/go-qrcode
-```
+This command will download necessary go packages using `go get`.
 
-#### Build redsocsk & chinadns: 
+### Build redsocsk & chinadns: 
 
 Use the packages from Ubuntu archives (Recommend)
 
@@ -54,11 +54,15 @@ Also you can build it by youself:
 
 [HERE](BUILD.md) is about how to build the binary files of **redsocks** & **chinadns**.
 
-#### Build click package for Ubuntu Phone
+### Build click package for Ubuntu Phone
 
-Before build, change `CURRENT_DIR` with your **GOPATH** and `GOROOT` with your **GOROOT** in *build-click-package.sh* .  
+Before build, change `go_root` with your **GOROOT** in *builder.py* .  
 Run this command to build the click package for Ubuntu Touch.  
-`./build-click-package.sh shadowsocks ubuntu-sdk-15.04 vivid`
+```bash
+$ ./builder.py build
+```
+
+And you can use `./builder.py install` to install the click package you build into your device.
 
 ## License
 
