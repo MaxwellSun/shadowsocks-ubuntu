@@ -38,7 +38,7 @@ Page {
         function initialize() {
             // Resources
             creditsModel.append({ category: i18n.tr("Resources"), name: i18n.tr("Bugs"), link: "https://github.com/dawndiy/shadowsocks-ubuntu/issues" })
-            creditsModel.append({ category: i18n.tr("Resources"), name: i18n.tr("Contact"), link: "mailto:chenglu1990@gmail.com" })
+            creditsModel.append({ category: i18n.tr("Resources"), name: i18n.tr("Contact"), link: "mailto:dawndiy.dev@gmail.com" })
 
             // Developers
             creditsModel.append({ category: i18n.tr("Developers"), name: "DawnDIY (" + i18n.tr("Founder") + ")", link: "https://github.com/dawndiy" })
