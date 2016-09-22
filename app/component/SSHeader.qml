@@ -8,7 +8,9 @@ PageHeader {
         dividerColor: "white"
     }
 
-    opacity: 0.9
+    // NOTE: From OTA 13 Header Button will not transparent
+    //       by setting opacity here
+    // opacity: 0.9
 
     leadingActionBar.delegate: SSHeaderButton {}
     trailingActionBar.delegate: SSHeaderButton {}
