@@ -1,9 +1,9 @@
 # shadowsocks-ubuntu
 
-[![Ubuntu Touch](https://img.shields.io/badge/ubuntu-touch-e95420.svg)]()
-[![GitHub release](https://img.shields.io/github/release/dawndiy/shadowsocks-ubuntu.svg?maxAge=2592000)]()
+[![GitHub release](https://img.shields.io/github/release/dawndiy/shadowsocks-ubuntu.svg?maxAge=2592000)](https://github.com/dawndiy/shadowsocks-ubuntu/releases/latest)
 [![GitHub license](https://img.shields.io/badge/license-AGPL-blue.svg)](https://raw.githubusercontent.com/dawndiy/shadowsocks-ubuntu/master/LICENSE)
-[![Github All Releases](https://img.shields.io/github/downloads/dawndiy/shadowsocks-ubuntu/total.svg?maxAge=2592000)]()
+[![Github All Releases](https://img.shields.io/github/downloads/dawndiy/shadowsocks-ubuntu/total.svg?maxAge=2592000)](https://github.com/dawndiy/shadowsocks-ubuntu/releases)
+[![Ubuntu Touch](https://img.shields.io/badge/OpenStore-shadowsocks-4caf50.svg)](https://open.uappexplorer.com/app/shadowsocks.ubuntu-dawndiy)
 
 Shadowsocks-ubuntu is a [shadowsocks](https://shadowsocks.org) client for Ubuntu Touch
 
