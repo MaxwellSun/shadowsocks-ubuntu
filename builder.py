@@ -44,6 +44,7 @@ def build_click():
     shutil.copy("manifest.json", "build")
     shutil.copy("apparmor.json", "build")
     shutil.copy("{}.desktop".format(app_name), "build")
+    # shutil.copy("{}.url-dispatcher".format(app_name), "build")
     shutil.copy("redsocks.conf", "build")
     shutil.copy("chnroute.txt", "build")
     shutil.copy("splash.png", "build")
@@ -68,7 +69,6 @@ def build_click():
         print("Building click package...Failed")
 
 
-
 def build_go():
     """
     Build binary file from go code
@@ -85,7 +85,8 @@ def build_go():
         "CGO_ENABLED=1 "
         "GOARCH=arm "
         "GOARM=7 "
-        "PKG_CONFIG_LIBDIR=/usr/lib/arm-linux-gnueabihf/pkgconfig:/usr/libpkgconfig:/usr/share/pgconfig "
+        "PKG_CONFIG_LIBDIR=/usr/lib/arm-linux-gnueabihf/pkgconfig:"
+        "/usr/libpkgconfig:/usr/share/pgconfig "
         "GOROOT={go_root} "
         "GOPATH={go_path} "
         "CC=arm-linux-gnueabihf-gcc "
@@ -93,7 +94,11 @@ def build_go():
         "{go_root}/bin/go build -o build/{app_name} "
         "-ldflags '-extld=arm-linux-gnueabihf-g++' "
         "./src"
-    ).format(framework=build_framework, serise=build_serise, go_root=go_root, go_path=go_path, app_name=app_name)
+    ).format(framework=build_framework,
+             serise=build_serise,
+             go_root=go_root,
+             go_path=go_path,
+             app_name=app_name)
 
     r = subprocess.run(command, shell=True)
 
@@ -147,6 +152,7 @@ def click_find():
     else:
         return None
 
+
 def get_go_packages():
     """
     Get or update go packages
@@ -154,7 +160,8 @@ def get_go_packages():
 
     pkgs = " ".join(go_packages)
 
-    command = "GOPATH={go_path} {go_root}/bin/go get -u {pkgs}".format(go_path=go_path, go_root=go_root, pkgs=pkgs)
+    command = "GOPATH={go_path} {go_root}/bin/go get -u {pkgs}".format(
+        go_path=go_path, go_root=go_root, pkgs=pkgs)
     subprocess.run(command, shell=True)
 
 
@@ -164,8 +171,11 @@ def run_local():
     """
 
     print("Building & run...")
-    # go_root = "/usr/local/go1.5"
-    command = "GOPATH={go_path} GOROOT={go_root} {go_root}/bin/go build -o {app_name} ./src && PATH=$PATH:. ./{app_name}".format(go_path=go_path, go_root=go_root, app_name=app_name)
+    go_root = "/usr/local/go1.5"
+    command = (
+        "GOPATH={go_path} GOROOT={go_root} {go_root}/bin/go build "
+        "-o {app_name} ./src && PATH=$PATH:. ./{app_name}"
+    ).format(go_path=go_path, go_root=go_root, app_name=app_name)
     subprocess.run(command, shell=True)
 
 
@@ -179,7 +189,10 @@ def translation_mo():
     for file in lst:
         code = file.split(".")[0][3:]
         os.makedirs("share/locale/{}/LC_MESSAGES".format(code))
-        command = "msgfmt po/{code}.po -o share/locale/{code}/LC_MESSAGES/{package}.mo".format(code=code, package=package_name)
+        command = (
+            "msgfmt po/{code}.po "
+            "-o share/locale/{code}/LC_MESSAGES/{package}.mo"
+        ).format(code=code, package=package_name)
         subprocess.run(command, shell=True)
 
 
@@ -188,7 +201,10 @@ def translation_po(language_code):
     Generate po files
     """
 
-    command = "msginit -i po/{package_name}.pot -o po/{language_code}.po".format(package_name=package_name, language_code=language_code)
+    command = (
+        "msginit -i po/{package_name}.pot "
+        "-o po/{language_code}.po"
+    ).format(package_name=package_name, language_code=language_code)
     subprocess.run(command, shell=True)
 
 
@@ -200,7 +216,9 @@ def translation_po_update():
 
     lst = glob("po/*.po")
     for file in lst:
-        command = "msgmerge -vU {file_name} po/{package_name}.pot".format(file_name=file, package_name=package_name)
+        command = (
+            "msgmerge -vU {file_name} po/{package_name}.pot"
+        ).format(file_name=file, package_name=package_name)
         subprocess.run(command, shell=True)
 
 
@@ -209,9 +227,14 @@ def translation_update():
     Update translations, new POT file
     """
 
-    command = "find ./app -iname '*.qml' | xargs xgettext -o po/{package_name}.pot --from-code=UTF-8 --c++ --qt --add-comments=TRANSLATORS --keyword=tr --keyword=tr:1,2 --keyword=N_ --package-name='{package_name}'".format(package_name=package_name)
+    command = (
+        "find ./app -iname '*.qml' | "
+        "xargs xgettext -o po/{package_name}.pot "
+        "--from-code=UTF-8 --c++ --qt --add-comments=TRANSLATORS "
+        "--keyword=tr --keyword=tr:1,2 --keyword=N_ "
+        "--package-name='{package_name}'"
+    ).format(package_name=package_name)
     subprocess.run(command, shell=True)
-
 
 
 if __name__ == "__main__":
@@ -245,3 +268,4 @@ if __name__ == "__main__":
         translation_po_update()
     elif args.operation == "update-mo":
         translation_mo()
+
