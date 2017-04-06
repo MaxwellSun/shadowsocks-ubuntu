@@ -10,11 +10,12 @@
 Shadowsocks-ubuntu is a [shadowsocks](https://shadowsocks.org) client for Ubuntu Touch
 
 ## Screenshots
-
-<img src="screenshots/phone_00.png" width="180">
-<img src="screenshots/phone_01.png" width="180">
-<img src="screenshots/phone_02.png" width="180">
-<img src="screenshots/phone_03.png" width="180">
+<div>
+  <img src="screenshots/phone_00.png" width="180" style="display:inline;" />
+  <img src="screenshots/phone_01.png" width="180" style="display:inline;" />
+  <img src="screenshots/phone_02.png" width="180" style="display:inline;" />
+  <img src="screenshots/phone_03.png" width="180" style="display:inline;" />
+</div>
 
 ## What is shadowsocks?
 A secure socks5 proxy, designed to protect your Internet traffic.  
